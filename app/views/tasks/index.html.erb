@@ -1,0 +1,33 @@
+<% if not current_user %>
+    <h1>Welcome to Tasker!</h1><br/>
+    <p>Please login or join to start</p>
+<% end %>
+<% if current_user %>
+    <h1>Listing Tasks</h1>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Completed</th>
+        <th>Description</th>
+        <th>Due date</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+      <% @tasks.each do |task| %>
+          <% if task.owned_by? current_user %>
+              <tr class="task_row">
+                <td><%= task.name %></td>
+                <td><%= check_box_tag 'complete','completed', task.completed, :disabled => true %></td>
+                <td><%= task.description %></td>
+                <td><%= task.due_date %></td>
+                <td><%= link_to 'Show', task %></td>
+                <td><%= link_to 'Edit', edit_task_path(task) %></td>
+                <td><%= link_to 'Destroy', task, :confirm => 'Are you sure?', :method => :delete %></td>
+              </tr>
+          <% end %>
+      <% end %>
+    </table>
+<% end %>
+
+<br />
