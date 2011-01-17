@@ -1,4 +1,7 @@
 class TasksController < ApplicationController
+
+  before_filter :authenticate, :only => [:edit, :new, :create]
+
   # GET /tasks
   # GET /tasks.xml
   def index
@@ -25,7 +28,6 @@ class TasksController < ApplicationController
   # GET /tasks/new.xml
   def new
     @task = Task.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @task }
@@ -41,7 +43,7 @@ class TasksController < ApplicationController
   # POST /tasks.xml
   def create
     @task = Task.new(params[:task])
-
+    @task.users << current_user
     respond_to do |format|
       if @task.save
         format.html { redirect_to(@task, :notice => 'Task was successfully created.') }
