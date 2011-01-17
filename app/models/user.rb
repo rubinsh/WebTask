@@ -9,8 +9,6 @@ class User < ActiveRecord::Base
                        :length => { :within => 4..20 },
                        :presence => true,
                        :if => :password_required?
-  
-  has_many :tasks, :order => 'due_date DESC, name ASC'
 
   before_save :encrypt_new_password
 
