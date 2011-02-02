@@ -1,6 +1,10 @@
 Tasker::Application.routes.draw do
   root :to => "tasks#index"
-  resources :tasks
+  resources :tasks do
+    member do
+      get 'mark_complete'
+    end
+  end
   resources :users
   resource :session
   match '/login' => "sessions#create", :as => "login"

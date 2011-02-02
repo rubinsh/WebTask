@@ -38,6 +38,20 @@ class TasksController < ApplicationController
   def edit
     @task = Task.find(params[:id])
   end
+  
+  def mark_complete
+    @task = Task.find(params[:id])
+    @task.toggle_complete!
+    respond_to do |format|
+      if @task.save
+        format.html {redirect_to(tasks_path, :notice => 'Task was marked as complete')}
+        format.xml { head :ok}
+      else
+        format.html {redirect_to(tasks_path, :alert => "There was an error while updating the task")}
+        format.xml { render :xml => @task.errors, status => :unprocessable_entity}
+      end
+    end
+  end
 
   # POST /tasks
   # POST /tasks.xml
