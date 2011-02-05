@@ -10,7 +10,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110108232941) do
+ActiveRecord::Schema.define(:version => 20110204234426) do
+
+  create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.string   "color"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "categories_tasks", :id => false, :force => true do |t|
+    t.integer "task_id"
+    t.integer "category_id"
+  end
 
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false
