@@ -1,13 +1,15 @@
 <% if not current_user %>
-    <h1>Welcome to WebTask!</h1><br/>
-    <p>Please login or join to start</p>
+    <div>
+      <h1>Welcome to WebTask!</h1><br/>
+      <h3>Please login or join to start</h3>
+    </div>
 <% end %>
 <% if current_user %>
     <h1>Listing Tasks</h1>
     <script>
         function ToggleComplete() {
-                alert("moshe!");
-              }
+            alert("moshe!");
+        }
     </script>
 
     <table>
@@ -28,7 +30,7 @@
                 <td><%= task.description %></td>
                 <td><%= task.due_date %></td>
                 <td><%= check_box_tag 'complete','completed', task.completed, :onclick =>"ToggleComplete()",
-                                       %></td>
+                %></td>
                 <td><%= link_to 'Show', task %></td>
                 <td><%= link_to 'Edit', edit_task_path(task) %></td>
                 <td><%= link_to toggle_complete_text(task), mark_complete_task_path(task) %></td>

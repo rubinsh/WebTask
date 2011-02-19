@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110204234426) do
+ActiveRecord::Schema.define(:version => 20110219192345) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -35,12 +35,12 @@ ActiveRecord::Schema.define(:version => 20110204234426) do
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
 
   create_table "tasks", :force => true do |t|
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-    t.string    "description"
-    t.boolean   "completed"
-    t.timestamp "due_date"
-    t.string    "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "description"
+    t.boolean  "completed"
+    t.date     "due_date"
+    t.string   "name"
   end
 
   create_table "tasks_users", :id => false, :force => true do |t|

@@ -10,14 +10,13 @@
 <body>
 <div class="container">
   <div id="header" class="span-24">
-    <div class="span-15">
+    <div class="span-17">
       <h1><%= link_to "WebTask", root_path %></h1>
     </div>
-    <div id="user_bar" class="span-8">
+    <div id="user_bar" class="span-6 right">
       <% if logged_in? %>
           Logged in as: <%= current_user.email %> |
-          <%= link_to "Logout", logout_path %> |
-          <%= link_to "New Task", new_task_path %>
+          <%= link_to "Logout", logout_path %>
       <% else %>
           <%= link_to "Join Tasker", new_user_path %> |
           <%= link_to "Login", login_path %>
@@ -25,10 +24,20 @@
     </div>
     <hr/>
   </div>
-  <div id="main">
-    <%= content_tag(:p, notice, :class => 'notice') if notice.present? %>
+  <div id="main" class="span-24">
+    <%= content_tag(:p, notice, :class => 'success') if notice.present? %>
     <%= content_tag(:p, alert, :class => 'alert') if alert.present? %>
-    <%= yield %>
+    <% if logged_in? %>
+    <%= render 'layouts/menu_bar' %>
+    <div class="span-24">
+      <%= render 'layouts/sidebar' %>
+      <div class="span-17 last">
+        <%= yield %>
+      </div>
+    </div>
+    <% else %>
+        <%= yield %>
+    <% end %>
   </div>
   <div id="footer">
     <hr/>
