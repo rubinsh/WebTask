@@ -45,6 +45,7 @@ class TasksController < ApplicationController
     respond_to do |format|
       if @task.save
         format.html {redirect_to(tasks_path, :notice => 'Task was marked as complete')}
+        format.js
         format.xml { head :ok}
       else
         format.html {redirect_to(tasks_path, :alert => "There was an error while updating the task")}
