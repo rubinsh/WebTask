@@ -8,31 +8,35 @@
   <%= render 'layouts/stylesheets' %>
 </head>
 <body>
-
-<div id="header">
-  <h1><%= link_to "WebTask", root_path %></h1>
-  <div id="user_bar">
-    <% if logged_in? %>
-        Logged in as: <%= current_user.email %> | 
-        <%= link_to "Logout", logout_path %> |
-        <%= link_to "New Task", new_task_path %>
-    <% else %>
-        <%= link_to "Join Tasker", new_user_path %> |
-        <%= link_to "Login", login_path %>
-    <% end %>
-
-
+<div class="container">
+  <div id="header" class="span-24">
+    <div class="span-15">
+      <h1><%= link_to "WebTask", root_path %></h1>
+    </div>
+    <div id="user_bar" class="span-8">
+      <% if logged_in? %>
+          Logged in as: <%= current_user.email %> |
+          <%= link_to "Logout", logout_path %> |
+          <%= link_to "New Task", new_task_path %>
+      <% else %>
+          <%= link_to "Join Tasker", new_user_path %> |
+          <%= link_to "Login", login_path %>
+      <% end %>
+    </div>
+    <hr/>
+  </div>
+  <div id="main">
+    <%= content_tag(:p, notice, :class => 'notice') if notice.present? %>
+    <%= content_tag(:p, alert, :class => 'alert') if alert.present? %>
+    <%= yield %>
+  </div>
+  <div id="footer">
+    <hr/>
+    <div class="quiet prepend-10">
+      Rubinsh's first ROR application <br/>
+      <%= link_to "Beginning Rails 3", "http://beginningrails.com" %>
+    </div>
   </div>
 </div>
-<div id="main">
-  <%= content_tag(:p, notice, :class => 'notice') if notice.present? %>
-  <%= content_tag(:p, alert, :class => 'alert') if alert.present? %>
-  <%= yield %>
-</div>
-<div id="footer">
-  Rubinsh's first ROR application <br/>
-  <%= link_to "Beginning Rails 3", "http://beginningrails.com" %>
-</div>
-
 </body>
 </html>
