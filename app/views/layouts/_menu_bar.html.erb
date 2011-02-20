@@ -1,3 +1,7 @@
-<div class="span-24 last menu_bar">
-  <%= link_to "New Task", new_task_path %>
+<div class="span-24 last">
+  <%= form_tag(new_task_path, :method => "get") do %>
+    <%= submit_tag "New Task" %>
+  <% end %>
+  <br/>
+  <hr/>
 </div>
