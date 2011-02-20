@@ -4,3 +4,21 @@
     padding-top: 1em;
     padding-bottom: 1em;
 }
+
+.center_text {
+    text-align: center;
+}
+
+.sidebar_item {
+    text-decoration: none;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    background-color: #ccffcc;
+    -moz-border-radius: 1em;
+    -webkit-border-radius: 1em;
+    margin-bottom: 0.5em;
+}
+
+.sidebar_item:hover {
+    background-color: #99ff99;
+}

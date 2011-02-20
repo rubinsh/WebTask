@@ -5,7 +5,16 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.xml
   def index
-    @tasks = Task.order('completed ASC').order('due_date ASC')
+    query_type = params[:type]
+    case
+      when query_type == "completed"
+        @tasks = Task.where(:completed => true)
+      when query_type == "not_completed"
+        @tasks = Task.where(:completed => false)
+      else
+        @tasks = Task.all #order('completed ASC').order('due_date ASC')
+    end
+
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @tasks }
