@@ -55,7 +55,7 @@ class TasksController < ApplicationController
         format.html { redirect_to(tasks_path, :notice => 'Task was marked as complete') }
         format.js
         format.xml { head :ok}
-      else
+      else #todo: add format.js and ajax failure handling....
         format.html {redirect_to(tasks_path, :alert => "There was an error while updating the task")}
         format.xml { render :xml => @task.errors, status => :unprocessable_entity}
       end

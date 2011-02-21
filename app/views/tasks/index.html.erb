@@ -9,15 +9,16 @@
 
     <table>
       <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Due date</th>
-        <th></th>
+        <th class="span-7">Name</th>
+        <th class="span-8">Description</th>
+        <th class="span-3">Due date</th>
+        <th class="span-3"></th>
 
-
+      <% counter = 0 %>
       <% @tasks.each do |task| %>
-
-          <tr id='<%= 'task-' + task.to_param %>' class="table-row <% if task.completed? %>strikeout<% end %>">
+          <% counter = counter + 1 %>
+          <tr id='<%= 'task-' + task.to_param %>'
+              class="table-row <% if task.completed? %>strikeout <% end %><%if counter.even? %>alt<% end %>">
             <td><%= simple_format raw(task.name) %></td>
             <td><%= simple_format raw(task.description) %></td>
             <td><%= task.due_date %></td>
