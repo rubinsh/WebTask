@@ -1,0 +1,2 @@
+$("#task-<%= @task.to_param %>").toggleClass("strikeout");
+$("#mark-complete-button-<%= @task.to_param %>").attr('value',"<%= toggle_complete_text(@task) %>");

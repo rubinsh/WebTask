@@ -12,25 +12,27 @@
         <th>Name</th>
         <th>Description</th>
         <th>Due date</th>
-        <th>Completed</th>
         <th></th>
-        <th></th>
-        <th></th>
-      </tr>
+
 
       <% @tasks.each do |task| %>
-          <% if task.owned_by? current_user %>
-              <tr class="task_row">
-                <td><%= task.name %></td>
-                <td><%= task.description %></td>
-                <td><%= task.due_date %></td>
-                <td><%= check_box_tag 'completed', nil , task.completed %></td>
-                <td><%= link_to 'Show', task %></td>
-                <td><%= link_to 'Edit', edit_task_path(task) %></td>
-                <td><%= link_to toggle_complete_text(task), mark_complete_task_path(task) %></td>
-                <td><%= link_to 'Delete', task, :confirm => 'Are you sure?', :method => :delete %></td>
-              </tr>
-          <% end %>
+
+          <tr id='<%= 'task-' + task.to_param %>' class="table-row <% if task.completed? %>strikeout<% end %>">
+            <td><%= simple_format raw(task.name) %></td>
+            <td><%= simple_format raw(task.description) %></td>
+            <td><%= task.due_date %></td>
+            <td>
+              <%= form_tag(mark_complete_url(:id => task.to_param), :remote => true) do %>
+                  <%= submit_tag toggle_complete_text(task) , :id => "mark-complete-button-#{task.to_param}" %>
+                  <br/>
+                  <%= link_to 'Show', task %>
+                  <%= link_to 'Edit', edit_task_path(task) %>
+                  <%= link_to 'Delete', task, :confirm => 'Are you sure?', :method => :delete %>
+              <% end %>
+            </td>
+
+          </tr>
+
       <% end %>
     </table>
 <% end %>

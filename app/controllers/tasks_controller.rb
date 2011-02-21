@@ -8,13 +8,13 @@ class TasksController < ApplicationController
     query_type = params[:type]
     case
       when query_type == "completed"
-        @tasks = Task.where(:completed => true)
+        @tasks = Task.order('due_date ASC').where(:completed => true)
       when query_type == "not_completed"
-        @tasks = Task.where(:completed => false)
+        @tasks = Task.order('due_date ASC').where(:completed => false)
       else
-        @tasks = Task.all #order('completed ASC').order('due_date ASC')
+        @tasks = Task.order('due_date ASC').all #order('completed ASC').order('due_date ASC')
     end
-
+    @tasks = @tasks.find_all { |tsk| tsk.owned_by? current_user }
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @tasks }
@@ -53,6 +53,7 @@ class TasksController < ApplicationController
     respond_to do |format|
       if @task.save
         format.html { redirect_to(tasks_path, :notice => 'Task was marked as complete') }
+        format.js
         format.xml { head :ok}
       else
         format.html {redirect_to(tasks_path, :alert => "There was an error while updating the task")}

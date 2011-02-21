@@ -1,15 +1,11 @@
 Tasker::Application.routes.draw do
   root :to => "tasks#index"
-  resources :tasks do
-    member do
-      get 'mark_complete'
-    end
-  end
+  resources :tasks
   resources :users
   resource :session
   match '/login' => "sessions#create", :as => "login"
   match '/logout' => "sessions#destroy", :as => "logout"
-  
+  match 'tasks/:id/mark_complete' => 'tasks#mark_complete', :as => :mark_complete
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
