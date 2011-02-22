@@ -5,16 +5,18 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.xml
   def index
-    query_type = params[:type]
-    case
-      when query_type == "completed"
-        @tasks = Task.order('due_date ASC').where(:completed => true)
-      when query_type == "not_completed"
-        @tasks = Task.order('due_date ASC').where(:completed => false)
-      else
-        @tasks = Task.order('due_date ASC').all #order('completed ASC').order('due_date ASC')
+    if (current_user)
+      query_type = params[:type]
+      case
+        when query_type == "completed"
+          @tasks = Task.order('due_date ASC').where(:completed => true)
+        when query_type == "not_completed"
+          @tasks = Task.order('due_date ASC').where(:completed => false)
+        else
+          @tasks = Task.order('due_date ASC').all #order('completed ASC').order('due_date ASC')
+      end
+      @tasks = @tasks.find_all { |tsk| tsk.owned_by? current_user }
     end
-    @tasks = @tasks.find_all { |tsk| tsk.owned_by? current_user }
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @tasks }
@@ -46,7 +48,7 @@ class TasksController < ApplicationController
   def edit
     @task = Task.find(params[:id])
   end
-  
+
   def mark_complete
     @task = Task.find(params[:id])
     @task.toggle_complete!

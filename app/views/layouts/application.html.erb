@@ -9,11 +9,11 @@
 </head>
 <body>
 <div class="container">
-  <div id="header" class="span-24">
-    <div class="span-17">
+  <div id="header" class="span-24 container_12">
+    <div class="span-18 grid_9">
       <h1><%= link_to "WebTask", root_path %></h1>
     </div>
-    <div id="user_bar" class="span-6 right">
+    <div id="user_bar" class="span-6 right grid_3">
       <% if logged_in? %>
           Logged in as: <%= current_user.email %> |
           <%= link_to "Logout", logout_path %>
@@ -22,26 +22,28 @@
           <%= link_to "Login", login_path %>
       <% end %>
     </div>
-    <hr/>
   </div>
-  <div id="main" class="span-24">
-    <%= content_tag(:p, notice, :class => 'success') if notice.present? %>
-    <%= content_tag(:p, alert, :class => 'alert') if alert.present? %>
-    <% if logged_in? %>
-    <%= render 'layouts/menu_bar' %>
-    <div class="span-24">
-      <%= render 'layouts/sidebar' %>
-      <div class="span-21 last">
-        <%= yield %>
-      </div>
+  <div id="main" class="span-24 container_12">
+    <div class="grid_12">
+        <%= content_tag(:p, notice, :class => 'success') if notice.present? %>
+        <%= content_tag(:p, alert, :class => 'alert') if alert.present? %>
     </div>
+      <% if logged_in? %>
+        <%= render 'layouts/menu_bar' %>
+        <div class="span-24">
+          <div>
+            <%= render 'layouts/sidebar' %>
+            <%= yield %>
+          </div>
+        </div>
     <% else %>
         <%= yield %>
     <% end %>
   </div>
-  <div id="footer">
+  <div id="footer" class="container_12">
+
+    <div class="quiet prepend-10 grid_12">
     <hr/>
-    <div class="quiet prepend-10">
       Rubinsh's first ROR application <br/>
       <%= link_to "Beginning Rails 3", "http://beginningrails.com" %>
     </div>

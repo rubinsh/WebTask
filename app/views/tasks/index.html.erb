@@ -14,9 +14,9 @@
         <th class="span-3">Due date</th>
         <th class="span-3"></th>
 
-      <% counter = 0 %>
-      <% @tasks.each do |task| %>
-          <% counter = counter + 1 %>
+        <% counter = 0 %>
+        <% @tasks.each do |task| %>
+            <% counter = counter + 1 %>
           <tr id='<%= 'task-' + task.to_param %>'
               class="table-row <% if task.completed? %>strikeout <% end %><%if counter.even? %>alt<% end %>">
             <td><%= simple_format raw(task.name) %></td>
@@ -24,7 +24,7 @@
             <td><%= task.due_date %></td>
             <td>
               <%= form_tag(mark_complete_url(:id => task.to_param), :remote => true) do %>
-                  <%= submit_tag toggle_complete_text(task) , :id => "mark-complete-button-#{task.to_param}" %>
+                  <%= submit_tag toggle_complete_text(task), :id => "mark-complete-button-#{task.to_param}" %>
                   <br/>
                   <%= link_to 'Show', task %>
                   <%= link_to 'Edit', edit_task_path(task) %>
@@ -36,6 +36,5 @@
 
       <% end %>
     </table>
-<% end %>
 
-<br />
+<% end %>
