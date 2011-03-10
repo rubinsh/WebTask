@@ -9,7 +9,7 @@
 </head>
 <body>
 <div class="container">
-  <div id="header" class="span-24 container_12">
+  <div id="header" class="span-24">
     <div class="span-18 grid_9">
       <h1><%= link_to "WebTask", root_path %></h1>
     </div>
@@ -40,10 +40,10 @@
         <%= yield %>
     <% end %>
   </div>
-  <div id="footer" class="container_12">
-
-    <div class="quiet prepend-10 grid_12">
+  <div id="footer" class="span-24">
     <hr/>
+    <div class="quiet prepend-10">
+
       Rubinsh's first ROR application <br/>
       <%= link_to "Beginning Rails 3", "http://beginningrails.com" %>
     </div>

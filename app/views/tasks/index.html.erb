@@ -1,40 +1,42 @@
 <% if not current_user %>
-    <div class="grid_10">
+    <div class="span-24">
       <h1>Welcome to WebTask!</h1><br/>
       <h3>Please login or join to start</h3>
     </div>
 <% end %>
 <% if current_user %>
-    <!--<h1>Listing Tasks</h1>-->
+    <div class="span-20 last" id="task-table">
+      <!--<h1>Listing Tasks</h1>-->
 
-    <table>
-      <tr>
-        <th class="span-7">Name</th>
-        <th class="span-8">Description</th>
-        <th class="span-3">Due date</th>
-        <th class="span-3"></th>
+      <table>
 
+        <th>Name</th>
+        <th>Description</th>
+        <th>Due date</th>
+        <th></th>
         <% counter = 0 %>
         <% @tasks.each do |task| %>
             <% counter = counter + 1 %>
-          <tr id='<%= 'task-' + task.to_param %>'
-              class="table-row <% if task.completed? %>strikeout <% end %><%if counter.even? %>alt<% end %>">
-            <td><%= simple_format raw(task.name) %></td>
-            <td><%= simple_format raw(task.description) %></td>
-            <td><%= task.due_date %></td>
-            <td>
-              <%= form_tag(mark_complete_url(:id => task.to_param), :remote => true) do %>
-                  <%= submit_tag toggle_complete_text(task), :id => "mark-complete-button-#{task.to_param}" %>
-                  <br/>
-                  <%= link_to 'Show', task %>
-                  <%= link_to 'Edit', edit_task_path(task) %>
-                  <%= link_to 'Delete', task, :confirm => 'Are you sure?', :method => :delete %>
-              <% end %>
-            </td>
 
-          </tr>
+            <tr id='<%= 'task-' + task.to_param %>'
+                class="<% if task.completed? %>strikeout <% end %><%if counter.even? %>alt<% end %>">
 
-      <% end %>
-    </table>
+              <td><%= truncate task.name, :length => 40 %></td>
+              <td><%= truncate task.description, :length => 50 %></td>
+              <td><%= task.due_date %></td>
+              <td>
+                <%= form_tag(mark_complete_url(:id => task.to_param), :remote => true) do %>
+                    <%= submit_tag toggle_complete_text(task), :id => "mark-complete-button-#{task.to_param}" %>
+                    <br/>
+                    <%= link_to 'Show', task, :id => "task_link" %>
+                    <%= link_to 'Edit', edit_task_path(task) %>
+                    <%= link_to 'Delete', task, :confirm => 'Are you sure?', :method => :delete %>
+                <% end %>
+              </td>
+            </tr>
+
+        <% end %>
+      </table>
+    </div>
 
 <% end %>

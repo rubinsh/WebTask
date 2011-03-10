@@ -2,19 +2,19 @@
 /*background: #003366;*/
 /*}*/
 
-.menu_bar {
-    /*background: #e5eCf9;*/
-    margin-bottom: 2em;
-    padding-top: 1em;
-    padding-bottom: 1em;
+/*.menu_bar {*/
+/*background: #e5eCf9;*/
+    /*margin-bottom: 2em;*/
+    /*padding-top: 1em;*/
+    /*padding-bottom: 1em;*/
 
-    background: #4c4c4c; /* old browsers */
-background: -moz-linear-gradient(top, #4c4c4c 0%, #595959 12%, #666666 25%, #474747 39%, #2c2c2c 50%, #000000 51%, #111111 60%, #2b2b2b 76%, #1c1c1c 91%, #131313 100%); /* firefox */
+    /*background: #4c4c4c; *//* old browsers */
+    /*background: -moz-linear-gradient(top, #4c4c4c 0%, #595959 12%, #666666 25%, #474747 39%, #2c2c2c 50%, #000000 51%, #111111 60%, #2b2b2b 76%, #1c1c1c 91%, #131313 100%); *//* firefox */
 
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#4c4c4c), color-stop(12%,#595959), color-stop(25%,#666666), color-stop(39%,#474747), color-stop(50%,#2c2c2c), color-stop(51%,#000000), color-stop(60%,#111111), color-stop(76%,#2b2b2b), color-stop(91%,#1c1c1c), color-stop(100%,#131313)); /* webkit */
+    /*background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#4c4c4c), color-stop(12%,#595959), color-stop(25%,#666666), color-stop(39%,#474747), color-stop(50%,#2c2c2c), color-stop(51%,#000000), color-stop(60%,#111111), color-stop(76%,#2b2b2b), color-stop(91%,#1c1c1c), color-stop(100%,#131313)); *//* webkit */
 
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', endColorstr='#131313',GradientType=0 ); /* ie */
-}
+    /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', endColorstr='#131313',GradientType=0 ); *//* ie */
+/*}*/
 
 .center_text {
     text-align: center;
@@ -26,66 +26,75 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', end
 /*background-color: #006295;*/
 /*-moz-border-radius: 1em;*/
 /*-webkit-border-radius: 1em;*/
-    margin-bottom: 0.5em;
+    margin-bottom: 0.25em;
+    margin-top: 0.25em;
 }
 
 .menu_item a {
     text-decoration: none;
-    color: white;
+    color: #70A8D2;
     text-align: center;
     padding: 0;
     margin: 0;
 }
 
 .menu_item:hover {
-    background-color: #006295;
-    color: white;
+    background-color: #e5eCf9;
+    /*color: white;*/
 }
 
 .menu_item a:hover {
-
+    color: #70A8D2;
 }
 
 .strikeout {
     text-decoration: line-through;
 }
 
-th {
-    background-color: #006295;
-    color: white;
-    font-size: 20px;
-    padding-left: 1em;
+/*th {*/
+    /*background-color: #006295;*/
+    /*color: white;*/
+    /*font-size: 20px;*/
+    /*padding-left: 1em;*/
 /*padding-left: 4em;*/
 /*padding-right: 3em;*/
-}
+/*}*/
+
+/*/redmond/images/ui-bg_gloss-wave_55_5c9ccc_500x100.png*/
+th { border: 1px solid #4297d7; background: #5c9ccc url(redmond/images/ui-bg_gloss-wave_55_5c9ccc_500x100.png) 50% 50% repeat-x; color: #ffffff; font-weight: bold; }
+
+/*.sidebar-header { background: #5c9ccc url(redmond/images/ui-bg_gloss-wave_55_5c9ccc_500x100.png) 50% 50% repeat-x; color: #ffffff; font-weight: bold; }*/
 
 .alt {
     background: #e5eCf9;
 }
-/*tr:hover {*/
-/*background: #ddddf7;*/
-/*}*/
 
 .sidebar {
-    background: #003366;
-    margin: 0;
-    height: 750px;
+    background: #ffffff;
+    /*margin-right: 1em;*/
+    /*height: 750px;*/
+    border: solid 2px #70A8D2;
+    border-radius:3px;
 /*padding-left: 1em;*/
 /*padding-right: 1em;*/
-    background-image: -webkit-gradient(
-        linear,
-        left bottom,
-        left top,
-        color-stop(0.03, rgb(9,13,61)),
-        color-stop(0.77, rgb(0,97,149))
-    );
-    background-image: -moz-linear-gradient(
-        center bottom,
-        rgb(9,13,61) 3%,
-        rgb(0,97,149) 77%
-    );
+    /*background-image: -webkit-gradient(*/
+        /*linear,*/
+        /*left bottom,*/
+        /*left top,*/
+        /*color-stop(0.03, rgb(108,174,210)),*/
+        /*color-stop(0.55, rgb(135,181,217))*/
+    /*);*/
+    /*background-image: -moz-linear-gradient(*/
+        /*center bottom,*/
+        /*rgb(42,68,82) 3%,*/
+        /*rgb(0,97,149) 77%*/
+    /*);*/
+}
 
-
+#task-table tr:hover
+{
+    background-color: #dcfac9;
+    cursor: pointer;
 }
 
 
