@@ -8,27 +8,32 @@
   <%= render 'layouts/stylesheets' %>
 </head>
 <body>
-<div class="container">
-  <div id="header" class="span-24">
-    <div class="span-18 grid_9">
-      <h1><%= link_to "WebTask", root_path %></h1>
+
+  <div class="header_background">
+    <div class="container">
+    <div id="header" class="span-24">
+      <div class="span-18">
+        <h1><%= link_to "WebTask", root_path %></h1>
+      </div>
+      <div id="user_bar" class="span-6 right">
+        <% if logged_in? %>
+            Logged in as: <%= current_user.email %> |
+            <%= link_to "Logout", logout_path %>
+        <% else %>
+            <%= link_to "Join Tasker", new_user_path %> |
+            <%= link_to "Login", login_path %>
+        <% end %>
+      </div>
     </div>
-    <div id="user_bar" class="span-6 right grid_3">
-      <% if logged_in? %>
-          Logged in as: <%= current_user.email %> |
-          <%= link_to "Logout", logout_path %>
-      <% else %>
-          <%= link_to "Join Tasker", new_user_path %> |
-          <%= link_to "Login", login_path %>
-      <% end %>
-    </div>
+      </div>
   </div>
+  <div class="container">
   <div id="main" class="span-24 container_12">
     <div class="grid_12">
-        <%= content_tag(:p, notice, :class => 'success') if notice.present? %>
-        <%= content_tag(:p, alert, :class => 'alert') if alert.present? %>
+      <%= content_tag(:p, notice, :class => 'success') if notice.present? %>
+      <%= content_tag(:p, alert, :class => 'alert') if alert.present? %>
     </div>
-      <% if logged_in? %>
+    <% if logged_in? %>
         <%= render 'layouts/menu_bar' %>
         <div class="span-24">
           <div>
