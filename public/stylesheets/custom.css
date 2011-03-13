@@ -20,6 +20,12 @@
     text-align: center;
 }
 
+
+.header_logo {
+    height: 70px;
+    background: url(../images/webtasklogo.png) no-repeat;
+}
+
 .menu_item {
     padding-top: 0.5em;
     padding-bottom: 0.5em;
