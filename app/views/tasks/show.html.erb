@@ -1,4 +1,5 @@
 <div class="prepend-1 span-19">
+  <%= include_tiny_mce_if_needed :readonly => 1 %>
   <p id="notice"><%= notice %></p>
 
   <p>
@@ -13,7 +14,7 @@
 
   <p>
     <b>Description:</b>
-    <%= @task.description %>
+     <%= text_area_tag "Description", @task.description, :class => "mceEditor" %>
   </p>
 
   <p>
