@@ -42,6 +42,12 @@
     </requirement>
     <requirement>
       <requirement>
+        <dependency name="tiny_mce" version="0" bound="GREATER_OR_EQUAL" git="false" path="false" doRequire="true" />
+      </requirement>
+      <source from="Gemfile" />
+    </requirement>
+    <requirement>
+      <requirement>
         <dependency name="webrat" version="0" bound="GREATER_OR_EQUAL" git="false" path="false" doRequire="true" />
       </requirement>
       <source from="Gemfile" />
@@ -72,6 +78,7 @@
     <orderEntry type="library" scope="PROVIDED" name="[gem] webrat (v0.7.3, /Users/rubinsh/.rvm/gems/ruby-1.9.2-p180@webtask/gems/webrat-0.7.3)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] test-unit (v2.2.0, /Users/rubinsh/.rvm/gems/ruby-1.9.2-p180@webtask/gems/test-unit-2.2.0)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] nokogiri (v1.4.4, /Users/rubinsh/.rvm/gems/ruby-1.9.2-p180@webtask/gems/nokogiri-1.4.4)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] annotate-models (v1.0.4, /Users/rubinsh/.rvm/gems/ruby-1.9.2-p180@webtask/gems/annotate-models-1.0.4)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] rake (v0.8.7, /Users/rubinsh/.rvm/gems/ruby-1.9.2-p180@webtask/gems/rake-0.8.7)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] mail (v2.2.15, /Users/rubinsh/.rvm/gems/ruby-1.9.2-p180@global/gems/mail-2.2.15)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] erubis (v2.6.6, /Users/rubinsh/.rvm/gems/ruby-1.9.2-p180@global/gems/erubis-2.6.6)" level="application" />
@@ -85,7 +92,7 @@
     <orderEntry type="library" scope="PROVIDED" name="[gem] builder (v2.1.2, /Users/rubinsh/.rvm/gems/ruby-1.9.2-p180@global/gems/builder-2.1.2)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] mime-types (v1.16, /Users/rubinsh/.rvm/gems/ruby-1.9.2-p180@global/gems/mime-types-1.16)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] activemodel (v3.0.5, /Users/rubinsh/.rvm/gems/ruby-1.9.2-p180@global/gems/activemodel-3.0.5)" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="[gem] annotate-models (v1.0.4, /Users/rubinsh/.rvm/gems/ruby-1.9.2-p180@webtask/gems/annotate-models-1.0.4)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] tiny_mce (v0.1.4, /Users/rubinsh/.rvm/gems/ruby-1.9.2-p180@webtask/gems/tiny_mce-0.1.4)" level="application" />
   </component>
 </module>
 
