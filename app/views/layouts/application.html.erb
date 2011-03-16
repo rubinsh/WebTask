@@ -17,10 +17,9 @@
       </div>
       <div id="user_bar" class="span-6 right">
         <% if logged_in? %>
-            Logged in as: <%= current_user.email %> |
             <%= link_to "Logout", logout_path %>
         <% else %>
-            <%= link_to "Join Tasker", new_user_path %> |
+            <%= link_to "Join WebTask", new_user_path %> |
             <%= link_to "Login", login_path %>
         <% end %>
       </div>

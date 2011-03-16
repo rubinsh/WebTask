@@ -9,11 +9,11 @@ class TasksController < ApplicationController
       query_type = params[:type]
       case
         when query_type == "completed"
-          @tasks = Task.order('due_date ASC').where(:completed => true)
+          @tasks = current_user.tasks.order('due_date ASC').where(:completed => true)
         when query_type == "not_completed"
-          @tasks = Task.order('due_date ASC').where(:completed => false)
+          @tasks = current_user.tasks.order('due_date ASC').where(:completed => false)
         else
-          @tasks = Task.order('due_date ASC').all #order('completed ASC').order('due_date ASC')
+          @tasks = current_user.tasks.order('due_date ASC').all #order('completed ASC').order('due_date ASC')
       end
       @tasks = @tasks.find_all { |tsk| tsk.owned_by? current_user }
     end

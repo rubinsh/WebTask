@@ -1,0 +1,16 @@
+<tr id='<%= 'task-' + task.to_param %>'
+    class="<% if task.completed? %>strikeout <% end %><%if counter.even? %>alt<% end %>">
+
+  <td></td>
+  <td><%= truncate task.description, :length => 50 %></td>
+  <td><%= task.due_date %></td>
+  <td>
+    <%= form_tag(mark_complete_url(:id => task.to_param), :remote => true) do %>
+        <%= submit_tag toggle_complete_text(task), :id => "mark-complete-button-#{task.to_param}" %>
+        <br/>
+        <%= link_to 'Show', task, :id => "task_link" %>
+        <%= link_to 'Edit', edit_task_path(task) %>
+        <%= link_to 'Delete', task, :confirm => 'Are you sure?', :method => :delete %>
+    <% end %>
+  </td>
+</tr>
