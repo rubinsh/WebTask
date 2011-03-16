@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110219192345) do
+ActiveRecord::Schema.define(:version => 20110316130329) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(:version => 20110219192345) do
   create_table "tasks", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "description"
+    t.text     "description", :limit => 255
     t.boolean  "completed"
     t.date     "due_date"
     t.string   "name"

@@ -1,3 +1,15 @@
+# == Schema Information
+# Schema version: 20110219192345
+#
+# Table name: users
+#
+#  id              :integer         primary key
+#  email           :string(255)
+#  hashed_password :string(255)
+#  created_at      :timestamp
+#  updated_at      :timestamp
+#
+
 require "digest"
 class User < ActiveRecord::Base
   attr_accessor :password

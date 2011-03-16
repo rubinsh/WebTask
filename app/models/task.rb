@@ -1,3 +1,17 @@
+# == Schema Information
+# Schema version: 20110219192345
+#
+# Table name: tasks
+#
+#  id          :integer         not null, primary key
+#  created_at  :datetime
+#  updated_at  :datetime
+#  description :string(255)
+#  completed   :boolean
+#  due_date    :date
+#  name        :string(255)
+#
+
 class Task < ActiveRecord::Base
 
   validates :name, :presence => true
