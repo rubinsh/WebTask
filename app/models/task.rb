@@ -1,12 +1,12 @@
 # == Schema Information
-# Schema version: 20110219192345
+# Schema version: 20110316130329
 #
 # Table name: tasks
 #
 #  id          :integer         not null, primary key
 #  created_at  :datetime
 #  updated_at  :datetime
-#  description :string(255)
+#  description :text(255)
 #  completed   :boolean
 #  due_date    :date
 #  name        :string(255)
