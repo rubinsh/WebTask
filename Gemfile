@@ -8,6 +8,12 @@ gem 'rails', '3.0.5'
 gem 'sqlite3-ruby', :require => 'sqlite3', :group => :development
 gem 'jquery-rails' , '>= 0.2.6'
 gem 'tiny_mce'
+gem 'devise'
+#gem 'omniauth'
+#gem "oa-oauth", :require => "omniauth/oauth"
+#gem 'oa-openid', :require => 'omniauth/openid'
+
+
 # Use unicorn as the web server
 # gem 'unicorn'
 

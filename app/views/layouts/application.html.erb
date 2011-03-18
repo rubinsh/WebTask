@@ -9,30 +9,30 @@
 </head>
 <body>
 
-  <div class="header_background">
-    <div class="container">
+<div class="header_background">
+  <div class="container">
     <div id="header" class="span-24">
       <div class="span-18 header_logo">
         <!--<h1></h1>-->
       </div>
       <div id="user_bar" class="span-6 right">
-        <% if logged_in? %>
-            <%= link_to "Logout", logout_path %>
+        <% if user_signed_in? %>
+            <%= link_to "Logout", destroy_user_session_path %>
         <% else %>
-            <%= link_to "Join WebTask", new_user_path %> |
-            <%= link_to "Login", login_path %>
+            <%= link_to "Join WebTask", new_user_registration_path %> |
+            <%= link_to "Login", new_user_session_path %>
         <% end %>
       </div>
     </div>
-      </div>
   </div>
-  <div class="container">
+</div>
+<div class="container">
   <div id="main" class="span-24 container_12">
-    <div class="grid_12">
-      <%= content_tag(:p, notice, :class => 'success') if notice.present? %>
-      <%= content_tag(:p, alert, :class => 'alert') if alert.present? %>
-    </div>
-    <% if logged_in? %>
+    <%= content_tag(:p, notice, :class => 'success') if notice.present? %>
+    <%= content_tag(:p, alert, :class => 'alert') if alert.present? %>
+
+    <% #TODO: remove this stupid if!!! %>
+    <% if user_signed_in? %>
         <%= render 'layouts/menu_bar' %>
         <div class="span-24">
           <div>
