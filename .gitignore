@@ -8,3 +8,5 @@ doc/api
 doc/app
 *.swp
 * ̃
+.idea/workspace.xml
+.idea/tasks.xml

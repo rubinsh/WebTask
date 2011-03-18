@@ -1,10 +1,20 @@
 Tasker::Application.routes.draw do
-  root :to => "tasks#index"
+
+  get "pages/home"
+
+  #TODO: add the missing pages
+#  get "pages/settings"
+
+#  get "pages/about"
+
+#  get "pages/help"
+
+  root :to => "pages#home"
   resources :tasks
-  resources :users
-  resource :session
-  match '/login' => "sessions#create", :as => "login"
-  match '/logout' => "sessions#destroy", :as => "logout"
+  devise_for :users
+  #, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+
+
   match 'tasks/:id/mark_complete' => 'tasks#mark_complete', :as => :mark_complete
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,53 +1,34 @@
 # == Schema Information
-# Schema version: 20110219192345
+# Schema version: 20110317150135
 #
 # Table name: users
 #
-#  id              :integer         primary key
-#  email           :string(255)
-#  hashed_password :string(255)
-#  created_at      :timestamp
-#  updated_at      :timestamp
+#  id                   :integer         not null, primary key
+#  email                :string(255)     default(""), not null
+#  encrypted_password   :string(128)     default(""), not null
+#  password_salt        :string(255)     default(""), not null
+#  reset_password_token :string(255)
+#  remember_token       :string(255)
+#  remember_created_at  :datetime
+#  sign_in_count        :integer         default(0)
+#  current_sign_in_at   :datetime
+#  last_sign_in_at      :datetime
+#  current_sign_in_ip   :string(255)
+#  last_sign_in_ip      :string(255)
+#  created_at           :datetime
+#  updated_at           :datetime
 #
 
-require "digest"
 class User < ActiveRecord::Base
-  attr_accessor :password
+  # Include default devise modules. Others available are:
+  # :token_authenticatable, :confirmable, :lockable and :timeoutable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
 
-  validates :email, :uniqueness => true, :length => { :within => 5..50 },
-                    :format => { :with => /^[^@][\w.-]+@[\w.-]+[.][a-z]{2,4}$/i }
 
-  validates :password, :confirmation => true,
-                       :length => { :within => 4..20 },
-                       :presence => true,
-                       :if => :password_required?
 
-  before_save :encrypt_new_password
+  # Setup accessible (or protected) attributes for your model
+  attr_accessible :email, :password, :password_confirmation, :remember_me
+
   has_and_belongs_to_many :tasks
-
-  def self.authenticate(email, password)
-    user = find_by_email(email)
-    return user if user && user.authenticated?(password)
-  end
-
-  def authenticated?(password)
-    self.hashed_password == encrypt(password)
-  end
-
-  protected
-    def encrypt_new_password
-      return if password.blank?
-      self.hashed_password = encrypt(password)
-    end
-
-    def password_required?
-      hashed_password.blank? || password.present?
-    end
-
-    def encrypt(string)
-      Digest::SHA1.hexdigest(string)
-    end
-
-
-
 end

@@ -1,41 +1,32 @@
-<% if not current_user %>
-    <div class="span-24">
-      <h1>Welcome to WebTask!</h1><br/>
-      <h3>Please login or join to start</h3>
-    </div>
-<% end %>
-<% if current_user %>
-    <div class="span-20 last" id="task-list">
-      <!--<h1>Listing Tasks</h1>-->
+<div class="span-20 last" id="task-list">
 
-      <ul id=sortable>
-        <% @tasks.each do |task| %>
+  <ul id=sortable>
+    <% @tasks.each do |task| %>
 
-            <li class="ui-state-default" id=<%= task.to_param %>>
+        <li class="ui-state-default" id=<%= task.to_param %>>
 
-              <table>
-                <tbody>
-                <tr>
-                  <td id="task-completed-checkbox">
-                    <%= check_box_tag "completed?", nil, task.completed? , :id => task.to_param %>
-                    <%= hidden_field_tag "mark_complete_link_#{task.to_param}", mark_complete_url(:id => task.to_param) %>
-                  </td>
-                  <td id="task-content" style="width:620px;">
-                    <%= link_to "", edit_task_path(task), :id => "task_link", :style => "visibility: hidden; width: 0px;" %>
-                    <%= truncate task.name, :length => 60 %>
-                  </td>
+          <table>
+            <tbody>
+            <tr>
+              <td id="task-completed-checkbox">
+                <%= check_box_tag "completed?", nil, task.completed? , :id => task.to_param %>
+                <%= hidden_field_tag "mark_complete_link_#{task.to_param}", mark_complete_url(:id => task.to_param) %>
+              </td>
+              <td id="task-content" style="width:620px;">
+                <%= link_to "", edit_task_path(task), :id => "task_link", :style => "visibility: hidden; width: 0px;" %>
+                <%= truncate task.name, :length => 60 %>
+              </td>
 
-                  <td>
-                    <%= task.due_date %>
-                  </td>
-                </tr>
-                </tbody>
-              </table>
-            </li>
+              <td>
+                <%= task.due_date %>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </li>
 
 
-        <% end %>
-      </ul>
-    </div>
+    <% end %>
+  </ul>
+</div>
 
-<% end %>

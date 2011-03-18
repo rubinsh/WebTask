@@ -1,6 +1,8 @@
 class TasksController < ApplicationController
 
-  before_filter :authenticate, :only => [:edit, :new, :create]
+
+  before_filter :authenticate_user!
+
   uses_tiny_mce :options => {
       :theme => 'advanced',
       :theme_advanced_toolbar_location => 'top',
