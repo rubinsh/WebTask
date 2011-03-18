@@ -12,7 +12,8 @@ class TasksController < ApplicationController
       :theme_advanced_buttons1 => "bold,italic,underline,strikethrough,separator,justifyleft,justifycenter,justifyright,justifyfull,separator,fontselect,fontsizeselect",
       :theme_advanced_buttons2 => "bullist,numlist,sparator,undo,redo,separator,ltr,rtl,separator,forecolor,backcolor,separator,link,unlink",
       :theme_advanced_buttons3 => "",
-      :width => "600"
+      :width => "600",
+      :readonly => 0
 
   }
 

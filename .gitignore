@@ -1,4 +1,6 @@
 .bundle
+.idea/workspace.xml
+.idea/tasks.xml
 db/*.sqlite3*
 log/*.log
 *.log
@@ -8,5 +10,3 @@ doc/api
 doc/app
 *.swp
 * ̃
-.idea/workspace.xml
-.idea/tasks.xml
