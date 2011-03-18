@@ -1,3 +1,5 @@
+<%= include_tiny_mce_if_needed :readonly => 0 %>
+
 <%= form_for(@task) do |f| %>
   <% if @task.errors.any? %>
     <div id="error_explanation" class="alert">
