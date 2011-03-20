@@ -13,8 +13,7 @@ class TasksController < ApplicationController
       :theme_advanced_buttons2 => "bullist,numlist,sparator,undo,redo,separator,ltr,rtl,separator,forecolor,backcolor,separator,link,unlink",
       :theme_advanced_buttons3 => "",
       :width => "600",
-      :readonly => 0
-
+      :readonly => false
   }
 
   # GET /tasks
@@ -24,9 +23,9 @@ class TasksController < ApplicationController
       query_type = params[:type]
       case
         when query_type == "completed"
-          @tasks = current_user.tasks.order('due_date ASC').where(:completed => true)
+          @tasks = current_user.tasks.where(:completed => true).order('due_date ASC')
         when query_type == "not_completed"
-          @tasks = current_user.tasks.order('due_date ASC').where(:completed => false)
+          @tasks = current_user.tasks.where(:completed => false).order('due_date ASC')
         else
           @tasks = current_user.tasks.order('due_date ASC').all #order('completed ASC').order('due_date ASC')
       end
