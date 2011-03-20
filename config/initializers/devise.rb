@@ -144,6 +144,10 @@ Devise.setup do |config|
 
   #openID integration
 
+  require 'openid/store/filesystem'
+
+  config.omniauth :open_id, OpenID::Store::Filesystem.new('./tmp')
+
 #  use OmniAuth::Strategies::OpenID, OpenID::Store::Filesystem.new('/tmp'), :name => 'google', :identifier => 'https://www.google.com/accounts/o8/id'
  # config.omniauth :open_id, OpenID::Store::Filesystem.new('./tmp')
 #   config.omniauth :google_apps, OpenID::Store::Filesystem.new('/tmp'), :domain => 'gmail.com'

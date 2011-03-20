@@ -10,8 +10,9 @@ gem 'jquery-rails' , '>= 0.2.6'
 gem 'tiny_mce'
 gem 'devise', :git => 'git://github.com/plataformatec/devise.git'
 gem "oa-oauth", :require => "omniauth/oauth"
+gem 'oa-openid', :require => 'omniauth/openid'
 #gem 'omniauth'
-#gem 'oa-openid', :require => 'omniauth/openid'
+
 
 
 # Use unicorn as the web server
