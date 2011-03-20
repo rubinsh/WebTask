@@ -11,9 +11,7 @@ Tasker::Application.routes.draw do
 
   root :to => "pages#home"
   resources :tasks
-  devise_for :users
-  #, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
-
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   match 'tasks/:id/mark_complete' => 'tasks#mark_complete', :as => :mark_complete
   # The priority is based upon order of creation:

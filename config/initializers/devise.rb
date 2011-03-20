@@ -148,4 +148,8 @@ Devise.setup do |config|
  # config.omniauth :open_id, OpenID::Store::Filesystem.new('./tmp')
 #   config.omniauth :google_apps, OpenID::Store::Filesystem.new('/tmp'), :domain => 'gmail.com'
 
+  #OAuth integration
+  config.omniauth :facebook, "111436678936112", "48493a9ea14d93f1b282e10dee13ae66"
+
+
 end

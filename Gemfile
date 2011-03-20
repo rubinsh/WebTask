@@ -8,9 +8,9 @@ gem 'rails', '3.0.5'
 gem 'sqlite3-ruby', :require => 'sqlite3', :group => :development
 gem 'jquery-rails' , '>= 0.2.6'
 gem 'tiny_mce'
-gem 'devise'
+gem 'devise', :git => 'git://github.com/plataformatec/devise.git'
+gem "oa-oauth", :require => "omniauth/oauth"
 #gem 'omniauth'
-#gem "oa-oauth", :require => "omniauth/oauth"
 #gem 'oa-openid', :require => 'omniauth/openid'
 
 
