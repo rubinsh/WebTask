@@ -1,19 +1,33 @@
-<h2>Sign up</h2>
+<div id="auth_form" class="prepend-7">
+  <div id="auth_form_content" class="span-9">
+    <h2>Sign up</h2>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
+        <p>
+          <span class="span-3"><%= f.label "Email:" %></span>
+          <span><%= f.text_field :email %></span>
 
-  <p><%= f.label :email %><br />
-  <%= f.text_field :email %></p>
+          <span class="span-3"><%= f.label "Password:" %></span>
+          <span><%= f.password_field :password %></span>
 
-  <p><%= f.label :password %><br />
-  <%= f.password_field :password %></p>
+          <span class="span-3"><%= f.label "Password Confirmation:" %></span>
+          <span><%= f.password_field :password_confirmation %></span>
+        </p>
 
-  <p><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></p>
+        <p><%= f.submit "Sign up" %></p>
+    <% end %>
+        <hr/>
+    Already have an account on these services? Sign in with:
+    <br/>
+    <div class="oauth_buttons">
+      <%= link_to "Facebook", user_omniauth_authorize_path(:facebook), :class => "facebook" %>
+    </div>
 
-  <p><%= f.submit "Sign up" %></p>
-<% end %>
+    <br/>
+    <br/>
+  </div>
+</div>
+<hr/>
 
-<br/>
 <%= render :partial => "devise/shared/links" %>

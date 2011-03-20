@@ -111,6 +111,32 @@ th { border: 1px solid #4297d7; background: #5c9ccc url(redmond/images/ui-bg_glo
     cursor: pointer;
 }
 
+#auth_form_content {
+    border: #ddd solid 1px;
+    padding: 1em;
+    margin: 1em;
+}
+
+.oauth_buttons a {
+    padding: 2px 5px 2px 22px;
+    background: no-repeat left;
+    font-weight: bold;
+    color: #555;
+    text-decoration: none;
+}
+
+.oauth_buttons a:hover {
+    border: #ddd solid 1px;
+    text-decoration: none;
+    color: #555;
+}
+
+.oauth_buttons a.facebook {
+    background-image: url("http://www.google.com/s2/favicons?domain=facebook.com");
+}
+
+
+
 
 
 
