@@ -1,8 +1,12 @@
-<div class="prepend-1 span-24 last">
+<div class="span-24 last" id="menu_bar">
   <!--<hr/>-->
   <br/>
   <%= form_tag(new_task_path, :method => "get") do %>
-    <%= submit_tag "New Task"%>
+  <%= submit_tag "New Task" %>
+    <!--<button  class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">-->
+      <!--<span class="ui-button-text">New Task</span>-->
+    <!--</button>-->
+
   <% end %>
 
   <br/>

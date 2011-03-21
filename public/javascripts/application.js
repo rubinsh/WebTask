@@ -31,3 +31,8 @@ $(function() {
         location.href = $(this).find('#task_link').attr('href');
     });
 });
+
+$(function() {
+		$( "button, input:submit, a", "#menu_bar" ).button();
+//		$( "a", ".demo" ).click(function() { return false; });
+	});
