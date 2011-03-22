@@ -1,14 +1,18 @@
 <div class="span-4 sidebar">
-  <div class="sidebar-header">
+  <div class="ui-widget-content ui-corner-all sidebar_panel">
+    <h3 class="ui-widget-header ui-corner-all">Filters</h3>
+    <div>
+
+      <%= link_to "Open Tasks", tasks_path(:type => "not_completed") %><br/>
+      <%= link_to "Completed Tasks", tasks_path(:type => "completed") %><br/>
+      <%= link_to "All tasks", tasks_path %>
+
+    </div>
 
   </div>
-  <div class="menu_item">
-    <h3><%= link_to "Open Tasks", tasks_path(:type => "not_completed") , :class => "center_text menu_item" %></h3>
-  </div>
-  <div class="menu_item">
-    <h3><%= link_to "Completed Tasks", tasks_path(:type => "completed") , :class => "center_text menu_item" %></h3>
-  </div>
-  <div class="menu_item">
-    <h3><%= link_to "All tasks", tasks_path , :class => "center_text menu_item" %></h3>
+  <div class="ui-widget-content ui-corner-all sidebar_panel">
+    <h3 class="ui-widget-header ui-corner-all">Categories</h3>
+    <div>
+    </div>
   </div>
 </div>

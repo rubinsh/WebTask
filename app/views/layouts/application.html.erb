@@ -33,8 +33,10 @@
 
     <% #TODO: remove this stupid if!!! %>
     <% if user_signed_in? %>
-        <%= render 'layouts/menu_bar' %>
-        <div class="span-24">
+        <div class="span-24 ui-widget-content ui-corner-all">
+          <div class="ui-widget-header ui-corner-top" id="menu_bar">
+            <%= render 'layouts/menu_bar' %>
+          </div>
           <div>
             <%= render 'layouts/sidebar' %>
             <%= yield %>

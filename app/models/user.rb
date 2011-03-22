@@ -31,6 +31,8 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
 
   has_and_belongs_to_many :tasks
+#  has_many :categories
+#  has_many :tasks, :through => :categories
 
 
   def self.find_for_google_openid(access_token, signed_in_resource=nil)

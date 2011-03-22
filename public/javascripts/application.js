@@ -12,15 +12,20 @@ $(function() {
 //		$( "#sortable" ).disableSelection();
 //	});
 
+//$(function() {
+//    $("#filters_accordion").accordion({ collapsible: true, header: 'h3', fillSpace: true });
+//    $("#categories_accordion").accordion({ collapsible: true, header: 'h3', fillSpace: true });
+//});
+
 $(function() {
-   $('#task-list td#task-completed-checkbox').click(function(event)
-   {
-       var $target = $(event.target);
-       var taskId = $target.attr("id");
-       var theTask = $('#mark_complete_link_' + taskId);
-       $.post(theTask.attr('value'), theTask.serialize(), null, "script");
-       return false;
-   });
+    $('#task-list td#task-completed-checkbox').click(function(event)
+    {
+        var $target = $(event.target);
+        var taskId = $target.attr("id");
+        var theTask = $('#mark_complete_link_' + taskId);
+        $.post(theTask.attr('value'), theTask.serialize(), null, "script");
+        return false;
+    });
 });
 
 $(function() {
@@ -33,6 +38,7 @@ $(function() {
 });
 
 $(function() {
-		$( "button, input:submit, a", "#menu_bar" ).button();
+    $( "button, input:submit, a", ".sidebar_panel"  ).button();
+    $( "button, input:submit, a", "#menu_bar"  ).button();
 //		$( "a", ".demo" ).click(function() { return false; });
-	});
+});

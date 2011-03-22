@@ -1,6 +1,8 @@
-<div class="span-20 last" id="task-list">
+<div class="span-20" id="task-list">
 
-  <ul id=sortable>
+
+  <ul id="sortable">
+
     <% @tasks.each do |task| %>
 
         <li class="ui-state-default" id=<%= task.to_param %>>
