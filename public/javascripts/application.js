@@ -38,7 +38,8 @@ $(function() {
 });
 
 $(function() {
-    $( "button, input:submit, a", ".sidebar_panel"  ).button();
+//    $( "button, input:submit, a", ".sidebar_panel"  ).button();
     $( "button, input:submit, a", "#menu_bar"  ).button();
+    $( "button, input:submit, a", "#call_button"  ).button();
 //		$( "a", ".demo" ).click(function() { return false; });
 });
