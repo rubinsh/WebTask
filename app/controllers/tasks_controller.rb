@@ -1,8 +1,8 @@
 class TasksController < ApplicationController
 
-
   before_filter :authenticate_user!
 
+  #TODO: it's bad that this code is in the controller
   uses_tiny_mce :options => {
       :theme => 'advanced',
       :theme_advanced_toolbar_location => 'top',
@@ -19,17 +19,14 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.xml
   def index
-    if (current_user)
-      query_type = params[:type]
-      case
-        when query_type == "completed"
-          @tasks = current_user.tasks.where(:completed => true).order('due_date ASC')
-        when query_type == "not_completed"
-          @tasks = current_user.tasks.where(:completed => false).order('due_date ASC')
-        else
-          @tasks = current_user.tasks.order('due_date ASC').all #order('completed ASC').order('due_date ASC')
-      end
-      @tasks = @tasks.find_all { |tsk| tsk.owned_by? current_user }
+    query_type = params[:type]
+    case
+      when query_type == "completed"
+        @tasks = current_user.tasks.where(:completed => true).order('due_date ASC')
+      when query_type == "not_completed"
+        @tasks = current_user.tasks.where(:completed => false).order('due_date ASC')
+      else
+        @tasks = current_user.tasks.order('due_date ASC') #order('completed ASC').order('due_date ASC')
     end
     respond_to do |format|
       format.html # index.html.erb
@@ -40,11 +37,14 @@ class TasksController < ApplicationController
   # GET /tasks/1
   # GET /tasks/1.xml
   def show
-    @task = Task.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @task }
+    @task = TasksHelper.try_get_task(current_user, params[:id])
+    if (@task.nil?)
+      render :action => 'not_found'
+    else
+      respond_to do |format|
+        format.html # show.html.erb
+        format.xml  { render :xml => @task }
+      end
     end
   end
 
@@ -60,20 +60,26 @@ class TasksController < ApplicationController
 
   # GET /tasks/1/edit
   def edit
-    @task = Task.find(params[:id])
+    @task = TasksHelper.try_get_task(current_user, params[:id])
+    render :action => 'not_found' if (@task.nil?)
   end
 
   def mark_complete
-    @task = Task.find(params[:id])
-    @task.toggle_complete!
-    respond_to do |format|
-      if @task.save
-        format.html { redirect_to(tasks_path, :notice => 'Task was marked as complete') }
-        format.js
-        format.xml { head :ok}
-      else #todo: add format.js and ajax failure handling....
-        format.html {redirect_to(tasks_path, :alert => "There was an error while updating the task")}
-        format.xml { render :xml => @task.errors, status => :unprocessable_entity}
+    @task = TasksHelper.try_get_task(current_user, params[:id])
+
+    if (@task.nil?)
+      render :action => 'not_found'
+    else
+      @task.toggle_complete!
+      respond_to do |format|
+        if @task.save
+          format.html { redirect_to(tasks_path, :notice => 'Task was marked as complete') }
+          format.js
+          format.xml { head :ok}
+        else #todo: add format.js and ajax failure handling....
+          format.html {redirect_to(tasks_path, :alert => "There was an error while updating the task")}
+          format.xml { render :xml => @task.errors, status => :unprocessable_entity}
+        end
       end
     end
   end
@@ -114,12 +120,16 @@ class TasksController < ApplicationController
   # DELETE /tasks/1
   # DELETE /tasks/1.xml
   def destroy
-    @task = Task.find(params[:id])
-    @task.destroy
+    @task = TasksHelper.try_get_task(current_user, params[:id])
 
-    respond_to do |format|
-      format.html { redirect_to tasks_path, :notice => 'Task successfully deleted.' }
-      format.xml  { head :ok }
+    if (@task.nil?)
+      render :action => 'not_found'
+    else
+      @task.destroy
+      respond_to do |format|
+        format.html { redirect_to tasks_path, :notice => 'Task successfully deleted.' }
+        format.xml  { head :ok }
+      end
     end
   end
 end

@@ -30,10 +30,10 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
 
-  has_and_belongs_to_many :tasks
-#  has_many :categories
-#  has_many :tasks, :through => :categories
-
+#  has_and_belongs_to_many :tasks
+  has_many :user_category_tasks
+  has_many :tasks, :through => :user_category_tasks, :uniq => true
+  has_many :categories, :through => :user_category_tasks, :uniq => true
 
   def self.find_for_google_openid(access_token, signed_in_resource=nil)
     data = access_token['user_info']

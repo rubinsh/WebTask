@@ -16,9 +16,19 @@ class Task < ActiveRecord::Base
 
   validates :name, :presence => true
 
-  has_and_belongs_to_many :users
-  has_and_belongs_to_many :categories
+  after_destroy :delete_from_join_model
 
+  has_many :user_category_tasks
+  has_many :users, :through => :user_category_tasks, :uniq => true
+  has_many :categories, :through => :user_category_tasks, :uniq => true
+#  has_and_belongs_to_many :users
+#  has_and_belongs_to_many :categories
+
+
+  #destroy JoinModel objects when the task is deleted
+  def delete_from_join_model
+    UserCategoryTask.delete_all(["task_id=?",self.id])
+  end
 
   def overdue?
     due_date < DateTime::now
