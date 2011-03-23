@@ -1,6 +1,6 @@
 Tasker::Application.routes.draw do
 
-  get "pages/home"
+
 
   #TODO: add the missing pages
 #  get "pages/settings"
@@ -11,6 +11,7 @@ Tasker::Application.routes.draw do
 
   root :to => "pages#home"
   resources :tasks
+  resources :categories
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   match 'tasks/:id/mark_complete' => 'tasks#mark_complete', :as => :mark_complete

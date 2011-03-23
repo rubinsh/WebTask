@@ -1,6 +1,7 @@
 class TasksController < ApplicationController
 
   before_filter :authenticate_user!
+  before_filter :check_that_task_belongs_to_user, :except => [:index,:new,:create]
 
   #TODO: it's bad that this code is in the controller
   uses_tiny_mce :options => {
@@ -70,6 +71,7 @@ class TasksController < ApplicationController
     if (@task.nil?)
       render :action => 'not_found'
     else
+      @task = Task.find(params[:id])
       @task.toggle_complete!
       respond_to do |format|
         if @task.save

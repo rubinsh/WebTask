@@ -7,10 +7,10 @@ $(function() {
 
 });
 
-//$(function() {
-//		$( "#sortable" ).sortable();
-//		$( "#sortable" ).disableSelection();
-//	});
+$(function() {
+		$( "#sortable" ).sortable();
+		$( "#sortable" ).disableSelection();
+	});
 
 //$(function() {
 //    $("#filters_accordion").accordion({ collapsible: true, header: 'h3', fillSpace: true });
@@ -34,6 +34,15 @@ $(function() {
     $('#task-list td#task-content').click(function ()
     {
         location.href = $(this).find('#task_link').attr('href');
+    });
+});
+
+$(function() {
+    // Assign a click handler that grabs the URL
+    // from the first cell and redirects the user.
+    $('#category_list td#category_name').click(function ()
+    {
+        location.href = $(this).find('#category_link').attr('href');
     });
 });
 
