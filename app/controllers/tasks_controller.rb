@@ -70,7 +70,7 @@ class TasksController < ApplicationController
     if (@task.nil?)
       render :action => 'not_found'
     else
-      @task = Task.find(params[:id])
+#      @task = Task.find(params[:id])
       @task.toggle_complete!
       respond_to do |format|
         if @task.save
@@ -89,9 +89,10 @@ class TasksController < ApplicationController
   # POST /tasks.xml
   def create
     @task = Task.new(params[:task])
-    @task.users << current_user
+
     respond_to do |format|
       if @task.save
+        current_user.tasks << @task
         format.html { redirect_to(tasks_path, :notice => 'Task was successfully created.') }
         format.xml  { render :xml => @task, :status => :created, :location => @task }
       else

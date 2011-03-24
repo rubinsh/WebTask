@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110324121031) do
+ActiveRecord::Schema.define(:version => 20110324131029) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -41,12 +41,6 @@ ActiveRecord::Schema.define(:version => 20110324121031) do
     t.date     "due_date"
     t.string   "name"
     t.integer  "owner_id"
-  end
-
-  create_table "user_category_tasks", :force => true do |t|
-    t.integer "task_id"
-    t.integer "user_id"
-    t.integer "category_id"
   end
 
   create_table "users", :force => true do |t|
