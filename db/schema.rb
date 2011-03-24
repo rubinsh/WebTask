@@ -10,18 +10,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110322193823) do
+ActiveRecord::Schema.define(:version => 20110324121031) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
     t.string   "color"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "categories_tasks", :id => false, :force => true do |t|
     t.integer "task_id"
     t.integer "category_id"
+  end
+
+  create_table "categorizations", :force => true do |t|
+    t.integer  "category_id"
+    t.integer  "task_id"
+    t.integer  "position"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "tasks", :force => true do |t|
@@ -31,6 +40,7 @@ ActiveRecord::Schema.define(:version => 20110322193823) do
     t.boolean  "completed"
     t.date     "due_date"
     t.string   "name"
+    t.integer  "owner_id"
   end
 
   create_table "user_category_tasks", :force => true do |t|

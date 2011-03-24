@@ -11,6 +11,7 @@
 #
 
 class Category < ActiveRecord::Base
-  has_many :user_category_tasks
-  has_many :tasks, :through => :user_category_tasks
+  belongs_to :user
+  has_many :tasks, :through => :categorizations
+  has_many :categorizations
 end
