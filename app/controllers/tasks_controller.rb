@@ -1,8 +1,9 @@
-class TasksController < ApplicationController
+class TasksController < InheritedResources::Base
 
   before_filter :authenticate_user!
+  has_scope :completed, :only => :index
 
-  #TODO: it's bad that this code is in the controller
+#TODO: it's bad that this code is in the controller
   uses_tiny_mce :options => {
       :theme => 'advanced',
       :theme_advanced_toolbar_location => 'top',
@@ -16,61 +17,13 @@ class TasksController < ApplicationController
       :readonly => false
   }
 
-  # GET /tasks
-  # GET /tasks.xml
-  def index
-    query_type = params[:type]
-    case
-      when query_type == "completed"
-        @tasks = current_user.tasks.where(:completed => true).order('due_date ASC')
-      when query_type == "not_completed"
-        @tasks = current_user.tasks.where(:completed => false).order('due_date ASC')
-      else
-        @tasks = current_user.tasks.order('due_date ASC') #order('completed ASC').order('due_date ASC')
-    end
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @tasks }
-    end
-  end
-
-  # GET /tasks/1
-  # GET /tasks/1.xml
-  def show
-    @task = TasksHelper.try_get_task(current_user, params[:id])
-    if (@task.nil?)
-      render :action => 'not_found'
-    else
-      respond_to do |format|
-        format.html # show.html.erb
-        format.xml  { render :xml => @task }
-      end
-    end
-  end
-
-  # GET /tasks/new
-  # GET /tasks/new.xml
-  def new
-    @task = Task.new
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @task }
-    end
-  end
-
-  # GET /tasks/1/edit
-  def edit
-    @task = TasksHelper.try_get_task(current_user, params[:id])
-    render :action => 'not_found' if (@task.nil?)
-  end
-
+  #TODO: this should move to update method with params
   def mark_complete
     @task = TasksHelper.try_get_task(current_user, params[:id])
 
     if (@task.nil?)
       render :action => 'not_found'
     else
-#      @task = Task.find(params[:id])
       @task.toggle_complete!
       respond_to do |format|
         if @task.save
@@ -85,53 +38,19 @@ class TasksController < ApplicationController
     end
   end
 
-  # POST /tasks
-  # POST /tasks.xml
+
   def create
-    @task = Task.new(params[:task])
-
-    respond_to do |format|
-      if @task.save
-        current_user.tasks << @task
-        format.html { redirect_to(tasks_path, :notice => 'Task was successfully created.') }
-        format.xml  { render :xml => @task, :status => :created, :location => @task }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @task.errors, :status => :unprocessable_entity }
-      end
-    end
+    create! { tasks_path(:completed => 'f')}
   end
 
-  # PUT /tasks/1
-  # PUT /tasks/1.xml
   def update
-    @task = Task.find(params[:id])
-
-    respond_to do |format|
-      if @task.update_attributes(params[:task])
-        format.html { redirect_to(tasks_path, :notice => 'Task was successfully updated.') }
-        format.js
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @task.errors, :status => :unprocessable_entity }
-      end
-    end
+    update! { tasks_path }
   end
 
-  # DELETE /tasks/1
-  # DELETE /tasks/1.xml
-  def destroy
-    @task = TasksHelper.try_get_task(current_user, params[:id])
-
-    if (@task.nil?)
-      render :action => 'not_found'
-    else
-      @task.destroy
-      respond_to do |format|
-        format.html { redirect_to tasks_path, :notice => 'Task successfully deleted.' }
-        format.xml  { head :ok }
-      end
-    end
+  protected
+  def begin_of_association_chain
+    current_user
   end
+
 end
+

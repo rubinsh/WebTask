@@ -1,32 +1,27 @@
-class CategoriesController < ApplicationController
+class CategoriesController < InheritedResources::Base
   before_filter :authenticate_user!
 
-  def index
-    @categories = current_user.categories
-  end
+  actions :show, :create, :new
 
   def show
-    @category = CategoriessHelper.try_get_category(current_user, params[:id])
-    if (@category.nil?)
-      render :action => 'tasks/not_found'
-    else
-      respond_to do |format|
-        format.html # show.html.erb
-        format.xml  { render :xml => @task }
-      end
-    end
-  end
-
-  def new
-  end
-
-  def edit
+    @tasks = Category.find(params[:id]).tasks
+    show! { tasks_url }
   end
 
   def create
+    @category = Category.new()
+    @category.name = params[:name]
+    @category.user_id = current_user.id
+    @category.color = "#d9d9d9" #assign default color
+    create! do |format|
+      format.html { redirect_to tasks_url}
+      format.js
+    end
   end
 
-  def destroy
+  protected
+  def begin_of_association_chain
+    current_user
   end
 
 end

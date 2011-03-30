@@ -8,9 +8,9 @@ $(function() {
 });
 
 $(function() {
-		$( "#sortable" ).sortable();
-		$( "#sortable" ).disableSelection();
-	});
+    $( "#sortable" ).sortable();
+    $( "#sortable" ).disableSelection();
+});
 
 //$(function() {
 //    $("#filters_accordion").accordion({ collapsible: true, header: 'h3', fillSpace: true });
@@ -51,4 +51,36 @@ $(function() {
     $( "button, input:submit, a", "#menu_bar"  ).button();
     $( "button, input:submit, a", "#call_button"  ).button();
 //		$( "a", ".demo" ).click(function() { return false; });
+});
+
+//add drag and drop for tasks into categories functionality
+$(function() {
+$( "td.task_drag" ).draggable(
+    {
+        cursor: "move",
+        helper: function(event){
+
+            return $('<div><ul class="button_list"></ul></div>')
+                    .find('ul').append($(event.target).closest('li').clone()).end().appendTo('body');
+        }
+    })
+});
+
+$(function() {
+$("div.category").droppable(
+    {
+        hoverClass: "ui-state-hover",
+        tolerance: 'pointer',
+        drop: function( event, ui ) {
+            var $target = $(event.target);
+            var categoryId = $target.attr("id");
+            var lastIndex = categoryId.lastIndexOf("_");
+            var theCategoryId = categoryId.substring(lastIndex + 1, categoryId.length);
+            var theTaskId = ui.draggable.closest('li').attr("id");
+//            alert("item dropped to: " + theCategoryId + " the item id is: " + theTaskId);
+
+            //TODO: fix this to be a route or a value from the dom - not this by hand url bullshit...
+            $.post('/tasks/' + theTaskId + '/categorizations', {category_id: theCategoryId} , null, "script");
+        }
+    })
 });

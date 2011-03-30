@@ -18,7 +18,10 @@ class Task < ActiveRecord::Base
 
   belongs_to :owner, :class_name => "User"
   has_many :categories, :through => :categorizations
-  has_many :categorizations
+  has_many :categorizations, :dependent => :destroy
+
+  scope :completed, lambda { |completed| where(:completed => completed) }
+#  scope :in_category, lambda { |category_id| where(["category.id = ?",category_id])}
 
 #  has_many :user_category_tasks
 #  has_many :users, :through => :user_category_tasks, :uniq => true

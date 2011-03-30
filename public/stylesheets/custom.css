@@ -16,9 +16,14 @@
 .button_list { list-style-type: none; margin: 0; padding: 0; width: 100%; }
 
 .button_list li { margin: 0 3px 3px 3px;
-    padding: 0.4em 0.4em 0.4em 1.5em;
+    padding: 0.4em;
     /*font-size: 1.4em; */
     height: 18px;
+}
+
+.button_list td.task_drag {
+    /*cursor: url(img/openhand.cur), default;*/
+    cursor: move;
 }
 
 #task-list td#task-content:hover

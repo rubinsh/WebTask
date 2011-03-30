@@ -3,8 +3,8 @@
     <h3 class="ui-widget-header ui-corner-all">Filters</h3>
     <div>
       <ul class="button_list">
-        <li class="ui-state-default ui-corner-all"><%= link_to "Open Tasks", tasks_path(:type => "not_completed"), :style => "width: 97%;" %></li>
-        <li class="ui-state-default ui-corner-all"><%= link_to "Completed Tasks", tasks_path(:type => "completed"), :style => "width: 97%;" %></li>
+        <li class="ui-state-default ui-corner-all"><%= link_to "Open Tasks", tasks_path(:completed => "f"), :style => "width: 97%;" %></li>
+        <li class="ui-state-default ui-corner-all"><%= link_to "Completed Tasks", tasks_path(:completed => "t"), :style => "width: 97%;" %></li>
         <li class="ui-state-default ui-corner-all"><%= link_to "All tasks", tasks_path, :style => "width: 97%;" %></li>
       </ul>
     </div>
@@ -13,9 +13,13 @@
   <div class="ui-widget-content ui-corner-all sidebar_panel">
     <h3 class="ui-widget-header ui-corner-all">Categories</h3>
     <div id="category_list">
-      <ul class="button_list">
+      <ul class="button_list" id="categories">
         <%= render current_user.categories %>
       </ul>
     </div>
+    <%= form_tag categories_path, :method => "post", :remote => true do %>
+            <%= text_field_tag :name ,"", :id => "new_category_name", :style => "width: 100px" %>
+            <%= submit_tag :add %>
+        <% end %>
   </div>
 </div>

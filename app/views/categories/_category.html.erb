@@ -7,8 +7,8 @@
               <div style="height:16px;width:16px;background:<%= category.color %>;"></div>
             </td>
             <td id="category_name">
-              <%= link_to "", tasks_path(:category => category), :id => "category_link", :style => "visibility: hidden; width: 0px;" %>
-              <%= truncate category.name, :length => 12 %>
+              <%= link_to "", category_path(:id => category.id), :id => "category_link", :style => "visibility: hidden; width: 0px;" %>
+              <%= truncate category.name, :length => 18 %>
             </td>
           </tr>
           </tbody>
