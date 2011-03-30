@@ -17,8 +17,7 @@ class CategorizationsController < InheritedResources::Base
     @categorization.category_id = params[:category_id]
     @categorization.task_id = params[:task_id]
 
-#    Categorization.create!(:category_id => params[:category_id], :task_id => params[:task_id])
-    create! { tasks_url }
+    create!
   end
 
 end

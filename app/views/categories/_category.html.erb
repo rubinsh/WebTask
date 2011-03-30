@@ -1,15 +1,17 @@
 <%= div_for category do  %>
       <li class="ui-state-default ui-corner-all">
         <table>
-          <tbody>
+          <tbody class="ui-state-default">
           <tr>
             <td>
               <div style="height:16px;width:16px;background:<%= category.color %>;"></div>
             </td>
             <td id="category_name">
-              <%= link_to "", category_path(:id => category.id), :id => "category_link", :style => "visibility: hidden; width: 0px;" %>
-              <%= truncate category.name, :length => 18 %>
+              <%= link_to category_path(:id => category.id), :id => "category_link" do %>
+                <strong><%= truncate category.name, :length => 16 %></strong>
+              <% end %>
             </td>
+            <td id="category_menu"></td>
           </tr>
           </tbody>
         </table>
