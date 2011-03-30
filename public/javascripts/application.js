@@ -67,6 +67,10 @@ $( "td.task_drag" ).draggable(
 });
 
 $(function() {
+   window.addDropables();
+});
+
+function addDropables() {
 $("div.category").droppable(
     {
         hoverClass: "ui-state-hover",
@@ -82,5 +86,5 @@ $("div.category").droppable(
             //TODO: fix this to be a route or a value from the dom - not this by hand url bullshit...
             $.post('/tasks/' + theTaskId + '/categorizations', {category_id: theCategoryId} , null, "script");
         }
-    })
-});
+    });
+};
