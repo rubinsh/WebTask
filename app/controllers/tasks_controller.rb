@@ -2,6 +2,9 @@ class TasksController < InheritedResources::Base
 
   before_filter :authenticate_user!
   has_scope :completed, :only => :index
+  respond_to :html, :xml, :json
+
+  belongs_to :category, :optional => true
 
 #TODO: it's bad that this code is in the controller
   uses_tiny_mce :options => {

@@ -1,11 +1,10 @@
 class CategorizationsController < InheritedResources::Base
 
   belongs_to :task #TODO: check if I really need this here
-  belongs_to :category
 
-  actions :create, :update, :delete
+  actions :create, :update, :delete, :index
 
-  respond_to :js, :json, :xml
+  respond_to :js, :json, :xml, :html
 
   def create
 

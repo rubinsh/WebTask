@@ -1,13 +1,13 @@
 class CategoriesController < InheritedResources::Base
   before_filter :authenticate_user!
 
-  actions :show, :create
-  respond_to :js, :html, :xml, :json
+  actions :show, :create, :index
+  respond_to :js, :xml, :json
 
-  def show
-    @tasks = Category.find(params[:id]).tasks
-    show! { tasks_url }
-  end
+#  def show
+#    @tasks = Category.find(params[:id]).tasks
+#    show!
+#  end
 
   def create
     @category = Category.new()

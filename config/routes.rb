@@ -8,12 +8,12 @@ Tasker::Application.routes.draw do
 #  get "pages/help"
 
   root :to => "pages#home"
-  resources :tasks do
+  resources :tasks do # , :only => [:index,:new]
     resources :categorizations
   end
 
   resources :categories do
-    resources :categorizations
+    resources :tasks, :shallow => true
   end
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
