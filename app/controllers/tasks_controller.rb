@@ -41,6 +41,20 @@ class TasksController < InheritedResources::Base
     end
   end
 
+  def index
+    @title = "Tasks - WebTask"
+    index!
+  end
+
+  def new
+    @title = "New Task - WebTask"
+    new!
+  end
+
+  def edit
+    @title = "Edit Task - WebTask"
+    edit!
+  end
 
   def create
     create! { tasks_path(:completed => 'f')}
