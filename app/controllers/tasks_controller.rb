@@ -3,6 +3,7 @@ class TasksController < InheritedResources::Base
   before_filter :authenticate_user!
   has_scope :completed, :only => :index
   respond_to :html, :xml, :json
+  respond_to :js, :only => :create
 
   belongs_to :category, :optional => true
 

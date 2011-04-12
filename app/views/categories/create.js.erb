@@ -1,3 +1,3 @@
 $("#new_category_name").val('');
 $("#categories").append($("<%= escape_javascript(render(@category)) %>").fadeIn(500));
-window.addDropables();
+$("#category_<%= @category.to_param %>").droppableSetup();

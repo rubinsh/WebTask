@@ -9,7 +9,7 @@ class CategoriesController < InheritedResources::Base
 #    show!
 #  end
 
-  def create
+  def create #TODO: I can implement this much better...
     @category = Category.new()
     @category.name = params[:name]
     @category.user_id = current_user.id

@@ -1,0 +1,4 @@
+$("#task-list").append($("<%= escape_javascript(render(@task)) %>").fadeIn(500));
+$("#task_<%= @task.to_param %> .task_drag").draggableSetup();
+
+
