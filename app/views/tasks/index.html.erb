@@ -12,9 +12,9 @@
 
 <div class="span-20 ui-widget-content ui-corner-all" style="margin-bottom: 10px;">
   <%= form_for(Task.new, :remote => true)  do |f| %>
-      <%= f.text_field :name, :id => "create_new_task_textbox", :style => "width: 300px",
+      <%= f.text_field :name, :id => "create_new_task_textbox",
                        :title => "Type here to create a new task..."%>
-      <%= submit_tag :add %>
+      <%= submit_tag :Add %>
   <% end %>
 </div>
 
