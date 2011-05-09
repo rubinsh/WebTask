@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.5'
+gem 'rails', '3.0.7'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -8,7 +8,9 @@ gem 'rails', '3.0.5'
 gem 'sqlite3-ruby', :require => 'sqlite3', :group => :development
 gem 'jquery-rails' , '>= 0.2.6'
 gem 'tiny_mce'
+gem "rubber", "1.13.0"
 gem 'devise'
+gem 'mysql'
 gem "oa-oauth", :require => "omniauth/oauth"
 gem 'oa-openid', :require => 'omniauth/openid'
 gem 'has_scope'
@@ -41,3 +43,4 @@ gem 'inherited_resources'
    gem 'test-unit'
    gem 'annotate-models'
  end
+

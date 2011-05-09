@@ -7,6 +7,17 @@ $(function() {
 
 });
 
+// $(function() {
+// 	var mobileSite = "http://192.168.1.137:3001/customers/2/sites/3"
+// 	if (document.referrer == mobileSite) return;
+// 	var uagent = navigator.userAgent.toLowerCase();
+// 	if (uagent.search("mobile") > -1 || uagent.search("webos") > -1) {
+// 		window.location = mobileSite;
+// 	};	
+// });
+// 
+
+
 $(function() {
     $( "#sortable" ).sortable();
     $( "#sortable" ).disableSelection();
