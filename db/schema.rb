@@ -31,8 +31,8 @@ ActiveRecord::Schema.define(:version => 20110411173951) do
   create_table "tasks", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "description", :limit => 255
-    t.boolean  "completed",                  :default => false
+    t.text     "description"
+    t.boolean  "completed",   :default => false
     t.date     "due_date"
     t.string   "name"
     t.integer  "owner_id"
@@ -41,7 +41,6 @@ ActiveRecord::Schema.define(:version => 20110411173951) do
   create_table "users", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
     t.string   "encrypted_password",   :limit => 128, :default => "", :null => false
-    t.string   "password_salt",                       :default => "", :null => false
     t.string   "reset_password_token"
     t.string   "remember_token"
     t.datetime "remember_created_at"

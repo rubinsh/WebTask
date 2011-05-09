@@ -1,4 +1,54 @@
 --- 
+- !ruby/object:Rubber::Configuration::InstanceItem 
+  domain: webtaskit.com
+  external_host: ec2-184-73-132-117.compute-1.amazonaws.com
+  external_ip: 184.73.132.117
+  instance_id: i-0a514065
+  internal_host: domU-12-31-39-0B-15-56.compute-1.internal
+  internal_ip: 10.214.26.164
+  name: production
+  platform: linux
+  roles: 
+  - !ruby/object:Rubber::Configuration::RoleItem 
+    name: web
+    options: {}
+
+  - !ruby/object:Rubber::Configuration::RoleItem 
+    name: haproxy
+    options: {}
+
+  - !ruby/object:Rubber::Configuration::RoleItem 
+    name: app
+    options: {}
+
+  - !ruby/object:Rubber::Configuration::RoleItem 
+    name: passenger
+    options: {}
+
+  - !ruby/object:Rubber::Configuration::RoleItem 
+    name: apache
+    options: {}
+
+  - !ruby/object:Rubber::Configuration::RoleItem 
+    name: db
+    options: 
+      primary: true
+  - !ruby/object:Rubber::Configuration::RoleItem 
+    name: mysql_master
+    options: {}
+
+  root_device_type: instance-store
+  security_groups: 
+  - WebTask_production_default
+  - WebTask_production_web
+  - WebTask_production_production
+  - WebTask_production_haproxy
+  - WebTask_production_app
+  - WebTask_production_passenger
+  - WebTask_production_apache
+  - WebTask_production_db
+  - WebTask_production_mysql_master
+  zone: us-east-1c
 - volumes: {}
 
   static_ips: {}
