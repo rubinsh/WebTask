@@ -196,19 +196,19 @@ staging_roles: "web,app,db:primary=true"
 # it, the volume will only get remounted thereby preserving your data
 #
 hosts:
-  my_host:
-    availability_zone: us-east-1a
-    volumes:
-      - size: 50 # size of vol in GBs
-        zone: us-east-1a # zone to create volume in, needs to match host's zone
-        device: /dev/sdh # OS device to attach volume to
-        mount: /mnt/mysql # The directory to mount this volume to
-        filesystem: ext3 # the filesystem to create on volume
-      - size: 5 # size of vol in GBs
-        zone: us-east-1a # zone to create volume in, needs to match host's zone
-        device: /dev/sdi # OS device to attach volume to
-        mount: /mnt/logs # The directory to mount this volume to
-        filesystem: ext3 # the filesystem to create on volume
+production:
+  availability_zone: us-east-1a
+  volumes:
+    - size: 50 # size of vol in GBs
+      zone: us-east-1a # zone to create volume in, needs to match host's zone
+      device: /dev/sdh # OS device to attach volume to
+      mount: /mnt/mysql # The directory to mount this volume to
+      filesystem: ext3 # the filesystem to create on volume
+    - size: 5 # size of vol in GBs
+      zone: us-east-1a # zone to create volume in, needs to match host's zone
+      device: /dev/sdi # OS device to attach volume to
+      mount: /mnt/logs # The directory to mount this volume to
+      filesystem: ext3 # the filesystem to create on volume
 #
 #       # volumes without mount/filesystem can be used in raid arrays
 #
