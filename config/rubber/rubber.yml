@@ -90,8 +90,8 @@ cloud_providers:
     # Ubuntu 10.04 Lucid	base install	64-bit	ami-fa01f193
     #
     # m1.small or m1.large or m1.xlarge
-    image_type: m1.small
-    image_id: "#{ %w{m1.small c1.medium}.include?(image_type) ? 'ami-7000f019' : 'ami-fa01f193' }"
+    image_type: t1.micro
+    image_id: "ami-3e02f257"
 
     # OPTIONAL: EC2 spot instance request support.
     #
@@ -195,20 +195,20 @@ staging_roles: "web,app,db:primary=true"
 # attached _and_ formatted, but if your host disapears and you recreate
 # it, the volume will only get remounted thereby preserving your data
 #
-hosts:
-production:
-  availability_zone: us-east-1a
-  volumes:
-    - size: 50 # size of vol in GBs
-      zone: us-east-1a # zone to create volume in, needs to match host's zone
-      device: /dev/sdh # OS device to attach volume to
-      mount: /mnt/mysql # The directory to mount this volume to
-      filesystem: ext3 # the filesystem to create on volume
-    - size: 5 # size of vol in GBs
-      zone: us-east-1a # zone to create volume in, needs to match host's zone
-      device: /dev/sdi # OS device to attach volume to
-      mount: /mnt/logs # The directory to mount this volume to
-      filesystem: ext3 # the filesystem to create on volume
+# hosts:
+# production:
+#   availability_zone: us-east-1a
+#   volumes:
+#     - size: 50 # size of vol in GBs
+#       zone: us-east-1a # zone to create volume in, needs to match host's zone
+#       device: /dev/sdh # OS device to attach volume to
+#       mount: /mnt/mysql # The directory to mount this volume to
+#       filesystem: ext3 # the filesystem to create on volume
+#     - size: 5 # size of vol in GBs
+#       zone: us-east-1a # zone to create volume in, needs to match host's zone
+#       device: /dev/sdi # OS device to attach volume to
+#       mount: /mnt/logs # The directory to mount this volume to
+#       filesystem: ext3 # the filesystem to create on volume
 #
 #       # volumes without mount/filesystem can be used in raid arrays
 #
