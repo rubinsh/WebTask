@@ -1,0 +1,17 @@
+<div class="header_background">
+  <div class="container">
+    <div id="header" class="span-24">
+      <div class="span-18 header_logo">
+        <!--<h1></h1>-->
+      </div>
+      <div id="user_bar" class="span-6 right">
+        <% if user_signed_in? %>
+            <%= link_to "Logout", destroy_user_session_path %>
+        <% else %>
+            <%= link_to "Join WebTask", new_user_registration_path %> |
+            <%= link_to "Login", new_user_session_path %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -20,7 +20,12 @@ class Task < ActiveRecord::Base
   has_many :categories, :through => :categorizations
   has_many :categorizations, :dependent => :destroy
 
-  scope :completed, lambda { |completed| where(:completed => completed) }
+  scope :completed, lambda { |completed|
+    if (completed == "true" || completed == "false")
+      where(:completed => completed == "true" ? true : false)
+    end
+    #else we return all the tasks of the user
+  }
 #  scope :in_category, lambda { |category_id| where(["category.id = ?",category_id])}
 
 #  has_many :user_category_tasks
@@ -40,5 +45,5 @@ class Task < ActiveRecord::Base
   def owned_by?(user)
     not self.users.select {|usr| usr.email == user.email }.empty?
   end
-  
+
 end

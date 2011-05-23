@@ -3,8 +3,8 @@
     <h3 class="ui-widget-header ui-corner-all">Filters</h3>
     <div>
       <ul class="button_list">
-        <li class="ui-state-default ui-corner-all"><%= link_to "Open Tasks", tasks_path(:completed => "f"), :style => "width: 97%;" %></li>
-        <li class="ui-state-default ui-corner-all"><%= link_to "Completed Tasks", tasks_path(:completed => "t"), :style => "width: 97%;" %></li>
+        <li class="ui-state-default ui-corner-all"><%= link_to "Open Tasks", tasks_path(:completed => "false"), :style => "width: 97%;" %></li>
+        <li class="ui-state-default ui-corner-all"><%= link_to "Completed Tasks", tasks_path(:completed => "true"), :style => "width: 97%;" %></li>
         <li class="ui-state-default ui-corner-all"><%= link_to "All tasks", tasks_path, :style => "width: 97%;" %></li>
       </ul>
     </div>

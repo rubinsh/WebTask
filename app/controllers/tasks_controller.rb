@@ -1,4 +1,4 @@
-class TasksController < InheritedResources::Base
+class TasksController < TaskSystemController
 
   before_filter :authenticate_user!
   has_scope :completed, :only => :index
@@ -7,19 +7,6 @@ class TasksController < InheritedResources::Base
 
   belongs_to :category, :optional => true
 
-#TODO: it's bad that this code is in the controller
-  uses_tiny_mce :options => {
-      :theme => 'advanced',
-      :theme_advanced_toolbar_location => 'top',
-      :theme_advanced_toolbar_align => 'left',
-      :mode => 'textareas',
-      :plugins => %w{ directionality },
-      :theme_advanced_buttons1 => "bold,italic,underline,strikethrough,separator,justifyleft,justifycenter,justifyright,justifyfull,separator,fontselect,fontsizeselect",
-      :theme_advanced_buttons2 => "bullist,numlist,sparator,undo,redo,separator,ltr,rtl,separator,forecolor,backcolor,separator,link,unlink",
-      :theme_advanced_buttons3 => "",
-      :width => "600",
-      :readonly => false
-  }
 
   #TODO: this should move to update method with params
   def mark_complete
@@ -58,7 +45,7 @@ class TasksController < InheritedResources::Base
   end
 
   def create
-    create! { tasks_path(:completed => 'f')}
+    create! { tasks_path(:completed => false)}
   end
 
   def update

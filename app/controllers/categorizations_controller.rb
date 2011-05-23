@@ -1,4 +1,4 @@
-class CategorizationsController < InheritedResources::Base
+class CategorizationsController < TaskSystemController
 
   belongs_to :task #TODO: check if I really need this here
 

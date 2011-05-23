@@ -1,4 +1,4 @@
-class CategoriesController < InheritedResources::Base
+class CategoriesController < TaskSystemController
   before_filter :authenticate_user!
 
   actions :show, :create, :index
