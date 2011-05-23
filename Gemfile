@@ -15,6 +15,7 @@ gem "oa-oauth", :require => "omniauth/oauth"
 gem 'oa-openid', :require => 'omniauth/openid'
 gem 'has_scope'
 gem 'inherited_resources'
+gem 'haml'
 #gem 'omniauth'
 
 

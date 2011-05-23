@@ -1,0 +1,17 @@
+= div_for(category) do
+  %table
+    %tbody
+      %tr
+        %td{ :style => "width:20px;"}
+          %div{ :style => "height:16px;width:16px;background:#{category.color};" }
+        -#TODO: remove the id attribute from the tds #category_name #category_menu
+        %td{ :style => "width:600px;"}
+          = link_to category_path(category) do
+            %strong
+              = truncate category.name, :length => 16
+        %td
+          = link_to 'Delete', category, :confirm => 'Are you sure?', :method => :delete
+
+
+
+

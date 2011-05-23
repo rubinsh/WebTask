@@ -1,0 +1,20 @@
+.ui-widget-content.ui-corner-all.sidebar_panel
+
+  %table.ui-widget-header.ui-corner-all
+    %tbody
+      %tr
+        %td{ :style => "width:120px;" }
+          %span.sidebar_widget_header_text
+            Categories
+        %td
+          = link_to categories_path do
+            .settings_icon
+
+  %ul#categories.button_list
+    = render :partial => "categories/category_sidebar", :collection => current_user.categories, :as => :category
+
+  -#Add category mini form
+  = form_tag categories_path, :method => "post", :remote => true do
+    = text_field_tag :name ,"", :id => "new_category_name", :style => "width: 100px"
+    = submit_tag :add
+

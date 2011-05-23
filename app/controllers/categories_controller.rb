@@ -1,7 +1,9 @@
 class CategoriesController < TaskSystemController
+
+#  layout 'categories'
   before_filter :authenticate_user!
 
-  actions :show, :create, :index
+  actions :show, :create, :index, :destroy
   respond_to :js, :xml, :json
 
 #  def show

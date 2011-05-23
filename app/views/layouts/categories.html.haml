@@ -1,0 +1,8 @@
+- content_for :content do
+  -#= render 'layouts/sidebar'
+  .span-24
+    = yield
+  .span-24
+    %hr/
+    = link_to "Back to my tasks", tasks_path
+= render :file => 'layouts/application'

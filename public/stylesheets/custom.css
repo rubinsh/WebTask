@@ -31,7 +31,7 @@
     cursor: pointer;
 }
 
-#task-list h3, .sidebar h3  {
+#task-list h3 {
     padding: 0.4em;
 }
 
@@ -42,33 +42,12 @@
     margin-bottom: 0.5em;
 }
 
-/*.sidebar {*/
-    /*background: #ffffff;*/
-    /*height: 250px;*/
-/*}*/
-
-/*.menu_item {*/
-    /*padding-top: 0.5em;*/
-    /*padding-bottom: 0.5em;*/
-    /*margin-bottom: 0.25em;*/
-    /*margin-top: 0.25em;*/
-/*}*/
-
-/*.menu_item a {*/
-    /*text-decoration: none;*/
-    /*color: #70A8D2;*/
-    /*text-align: center;*/
-    /*padding: 0;*/
-    /*margin: 0;*/
-/*}*/
-
-/*.menu_item:hover {*/
-    /*background-color: #e5eCf9;*/
-/*}*/
-
-/*.menu_item a:hover {*/
-    /*color: #70A8D2;*/
-/*}*/
+.sidebar_widget_header_text {
+    font-size:16px; margin-left:5px; font-weight: bold;
+}
+.settings_icon {
+  width: 24px; height: 24px; background-image: url(/images/package_settings.png);
+}
 
 /*
   menu_bar
