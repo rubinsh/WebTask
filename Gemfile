@@ -42,6 +42,6 @@ gem 'haml'
  group :development, :test do
    gem 'webrat'
    gem 'test-unit'
-   gem 'annotate-models'
+   gem 'annotate'
  end
 

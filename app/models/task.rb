@@ -20,7 +20,7 @@ class Task < ActiveRecord::Base
   has_many :categories, :through => :categorizations
   has_many :categorizations, :dependent => :destroy
 
-  scope :completed, lambda { |completed|
+  scope :copleted, lambda { |completed|
     if (completed == "true" || completed == "false")
       where(:completed => completed == "true" ? true : false)
     end
