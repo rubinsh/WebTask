@@ -12,16 +12,6 @@ class Task < ActiveRecord::Base
     end
     #else we return all the tasks of the user
   }
-  #scope :completed, where(:completed => true).order('due_date asc')
-  #scope :not_completed, where(:completed => false).order('due_date asc')
-
-#  scope :in_category, lambda { |category_id| where(["category.id = ?",category_id])}
-
-#  has_many :user_category_tasks
-#  has_many :users, :through => :user_category_tasks, :uniq => true
-#  has_many :categories, :through => :user_category_tasks, :uniq => true
-#  has_and_belongs_to_many :users
-#  has_and_belongs_to_many :categories
 
   def overdue?
     due_date < DateTime::now
