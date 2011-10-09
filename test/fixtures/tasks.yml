@@ -1,17 +1,3 @@
-# == Schema Information
-# Schema version: 20110316130329
-#
-# Table name: tasks
-#
-#  id          :integer         not null, primary key
-#  created_at  :datetime
-#  updated_at  :datetime
-#  description :text(255)
-#  completed   :boolean
-#  due_date    :date
-#  name        :string(255)
-#
-
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
@@ -25,3 +11,18 @@ two:
   completed: false
   description: MyText
   due_date: 2011-01-05 19:53:39
+
+# == Schema Information
+#
+# Table name: tasks
+#
+#  id          :integer         not null, primary key
+#  created_at  :datetime
+#  updated_at  :datetime
+#  description :text(255)
+#  completed   :boolean         default(FALSE)
+#  due_date    :date
+#  name        :string(255)
+#  owner_id    :integer
+#
+

@@ -1,17 +1,3 @@
-# == Schema Information
-# Schema version: 20110316130329
-#
-# Table name: tasks
-#
-#  id          :integer         not null, primary key
-#  created_at  :datetime
-#  updated_at  :datetime
-#  description :text(255)
-#  completed   :boolean
-#  due_date    :date
-#  name        :string(255)
-#
-
 class Task < ActiveRecord::Base
 
   validates :name, :presence => true
@@ -20,12 +6,15 @@ class Task < ActiveRecord::Base
   has_many :categories, :through => :categorizations
   has_many :categorizations, :dependent => :destroy
 
-  scope :copleted, lambda { |completed|
+  scope :completed, lambda { |completed|
     if (completed == "true" || completed == "false")
       where(:completed => completed == "true" ? true : false)
     end
     #else we return all the tasks of the user
   }
+  #scope :completed, where(:completed => true).order('due_date asc')
+  #scope :not_completed, where(:completed => false).order('due_date asc')
+
 #  scope :in_category, lambda { |category_id| where(["category.id = ?",category_id])}
 
 #  has_many :user_category_tasks
@@ -47,3 +36,18 @@ class Task < ActiveRecord::Base
   end
 
 end
+
+# == Schema Information
+#
+# Table name: tasks
+#
+#  id          :integer         not null, primary key
+#  created_at  :datetime
+#  updated_at  :datetime
+#  description :text(255)
+#  completed   :boolean         default(FALSE)
+#  due_date    :date
+#  name        :string(255)
+#  owner_id    :integer
+#
+

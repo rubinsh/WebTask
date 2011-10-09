@@ -1,5 +1,11 @@
+class Category < ActiveRecord::Base
+  belongs_to :user
+  has_many :tasks, :through => :categorizations
+  has_many :categorizations, :dependent => :destroy
+
+end
+
 # == Schema Information
-# Schema version: 20110219192345
 #
 # Table name: categories
 #
@@ -8,11 +14,6 @@
 #  color      :string(255)
 #  created_at :datetime
 #  updated_at :datetime
+#  user_id    :integer
 #
 
-class Category < ActiveRecord::Base
-  belongs_to :user
-  has_many :tasks, :through => :categorizations
-  has_many :categorizations, :dependent => :destroy
-
-end
