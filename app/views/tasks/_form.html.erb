@@ -1,4 +1,4 @@
-<%= include_tiny_mce_if_needed :readonly => false %>
+<%= javascript_include_tag :ckeditor %>
 
 <%= form_for(@task) do |f| %>
   <% if @task.errors.any? %>
@@ -23,7 +23,7 @@
   </div>
   <div class="field">
     <%= f.label :description %><br />
-    <%= f.text_area :description , :class => "mceEditor" %>
+    <%= f.text_area :description , :class => "ckeditor" %>
   </div>
   <div class="field">
     <%= f.label :due_date %><br />

@@ -1,4 +1,5 @@
 source 'http://rubygems.org'
+source 'http://gems.github.com/'
 
 gem 'rails', '3.0.10'
 
@@ -8,13 +9,15 @@ gem 'sqlite3'
 
 # gem 'sqlite3-ruby', :require => 'sqlite3', :group => :development
 gem 'jquery-rails'
-gem 'tiny_mce'
+gem 'ckeditor', '3.5.0'
 gem 'devise'
 gem "oa-oauth", :require => "omniauth/oauth"
 gem 'oa-openid', :require => 'omniauth/openid'
 gem 'has_scope'
 gem 'inherited_resources'
 gem 'haml'
+gem 'sass'
+gem 'chriseppstein-compass'
 #gem 'omniauth'
 
 

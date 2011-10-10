@@ -1,5 +1,6 @@
 <div class="prepend-1 span-19">
-  <%= include_tiny_mce_if_needed :readonly => 1 %>
+  <%= javascript_include_tag :ckeditor %>
+  
   <p id="notice"><%= notice %></p>
   <p>
     <h3><%= @task.name %></h3>
@@ -12,14 +13,17 @@
 
   <p>
     <b>Description:</b>
-     <%= text_area_tag "Description", @task.description, :class => "mceEditor" %>
+     <%= text_area_tag "Description", @task.description, :class => "ckeditor",
+        :readonly => true, :disabled => true, :contentEditable => false, :designMode => "off" %>
+     <%= ckeditor_textarea("object", "field", :readonly => true) %>
+     <%= ckeditor_textarea("object", @task.description, :readonly => true) %>
+
   </p>
 
   <p>
     <b>Due date:</b>
     <%= @task.due_date %>
   </p>
-
 
   <%= link_to 'Edit', edit_task_path(@task) %> |
   <%= link_to 'Back', tasks_path %>
