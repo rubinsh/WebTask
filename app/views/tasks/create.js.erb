@@ -2,5 +2,3 @@ $("#task-list").append($("<%= escape_javascript(render(@task)) %>").fadeIn(500))
 $("#task_<%= @task.to_param %> .task_drag").draggableSetup().attr("selected");
 $("#create_new_task_textbox").val('');
 
-
-

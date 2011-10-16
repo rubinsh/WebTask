@@ -1,3 +1,4 @@
+
 <div class="prepend-1 span-19">
   <%= javascript_include_tag :ckeditor %>
   
@@ -13,11 +14,58 @@
 
   <p>
     <b>Description:</b>
-     <%= text_area_tag "Description", @task.description, :class => "ckeditor",
-        :readonly => true, :disabled => true, :contentEditable => false, :designMode => "off" %>
-     <%= ckeditor_textarea("object", "field", :readonly => true) %>
-     <%= ckeditor_textarea("object", @task.description, :readonly => true) %>
+    
+    <!-- First way of showing the ckeditor -->
+     <%= text_area_tag "description", @task.description, :class => "ckeditor" %>
+    <!-- Second way of showing the ckeditor -->
+     <textarea id="description1" name="description1"><%=@task.description%></textarea>        
+      
+    <script type="text/javascript">
+      // The second way of showing the editor needs a replacement to be made.
+      CKEDITOR.replace( 'description1' );
+      
+      // Trying to make the editor readonly
+      // Temporary workaround for providing editor 'read-only' toggling functionality. 
+      ( function()
+      {
+         var cancelEvent = function( evt )
+            {
+               evt.cancel();
+            };
+  
+         CKEDITOR.editor.prototype.readOnly = function( isReadOnly )
+         {
+            // Turn off contentEditable.
+            this.document.$.body.disabled = isReadOnly;
+            CKEDITOR.env.ie ? this.document.$.body.contentEditable = !isReadOnly
+            : this.document.$.designMode = isReadOnly ? "off" : "on";
+  
+            // Prevent key handling.
+            this[ isReadOnly ? 'on' : 'removeListener' ]( 'key', cancelEvent, null, null, 0 );
+            this[ isReadOnly ? 'on' : 'removeListener' ]( 'selectionChange', cancelEvent, null, null, 0 );
+  
+            // Disable all commands in wysiwyg mode.
+            var command,
+               commands = this._.commands,
+               mode = this.mode;
+  
+            for ( var name in commands )
+            {
+               command = commands[ name ];
+               isReadOnly ? command.disable() : command[ command.modes[ mode ] ? 'enable' : 'disable' ]();
+               this[ isReadOnly ? 'on' : 'removeListener' ]( 'state', cancelEvent, null, null, 0 );
+            }
+         }
+      } )();
 
+      // Turn CKEditor into 'ready-only' mode.
+      CKEDITOR.instances.description.readOnly( true );      
+      CKEDITOR.instances.description1.readOnly( true );      
+
+      // Try to empty the toolbar
+      CKEDITOR.instances.description.toolbar = 'Empty';
+  
+    </script>
   </p>
 
   <p>

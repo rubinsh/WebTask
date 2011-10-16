@@ -27,6 +27,10 @@ CKEDITOR.editorConfig = function( config )
   
   config.toolbar = 'Customed';
   
+  config.toolbar_Empty =
+    [
+    ];
+
   config.toolbar_Customed =
     [
         ['Cut','Copy','Paste','PasteText','-','Undo','Redo','-','Find','Replace','-','SpellChecker', 'Scayt'],

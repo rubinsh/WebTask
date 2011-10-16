@@ -5,17 +5,36 @@
       <table>
         <tbody>
         <tr>
-          <td class="task_drag" id="task_drag"><%= image_tag "grab-icon.png" %></td>
-          <td id="task-completed-checkbox">
+          <td class="task_drag" id="task_drag" style="width:15px;">
+            <%= image_tag "grab-icon.png" %>
+          </td>
+          
+          <td id="task-completed-checkbox" style="width:25px;">
             <%= check_box_tag "completed?", nil, task.completed? , :id => task.to_param %>
             <%= hidden_field_tag "mark_complete_link_#{task.to_param}", mark_complete_url(:id => task.to_param) %>
           </td>
+          
           <td id="task-content" style="width:620px;">
             <%= link_to "", edit_task_path(task), :id => "task_link", :style => "visibility: hidden; width: 0px;" %>
             <%= truncate task.name, :length => 60 %>
           </td>
 
-          <td style="width:120px;">
+          <td id="task-categories" style="width:300px; text-align:left;">
+            <% _MAX_DISPLAYED_CAT = 2 %>
+            <% cat_index = 0 %>
+            <% task.categories.each do |category| %>
+              <% if (cat_index == _MAX_DISPLAYED_CAT) %>
+                <td style="padding-left:1px; padding-right:5px">...</td>
+                <% break %>
+              <% end %>
+              <% cat_index += 1 %>
+              <td style="background-color:<%=category.color%>; color:black; padding-left:5px; padding-right:5px;">
+                <%= category.name %>
+              </td>
+            <% end %>
+          </td>
+
+          <td style="width:100px; text-align:right">
             <%= task.due_date %>
           </td>
         </tr>

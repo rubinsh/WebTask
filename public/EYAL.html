@@ -1,0 +1,71 @@
+<script language="JavaScript" src="javascripts/jQuery.js"></script>
+<script type="text/javascript" src="javascripts/jscolor/jscolor.js"></script>
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Demo</title>
+    <style>
+       a.test { font-weight: bold; }
+    </style>       
+  </head>
+  <body>
+    <a href="http://jquery.com/">jQuery</a>
+    
+    <div id="divId" name="divName" style="height:16px;width:16px;background:green;"></div>
+    
+    <div >HERE</div>
+    
+    <input class="color {required:false}" type="button"
+           style="height:18px; width:18px; background:green;"
+           onchange="this.color = red">        
+    <input id="hiddenHelper" 
+           onchange="document.getElementsByTagName('BODY')[0].style.backgroundColor = '#'+this.color">
+
+    <div >AND HERE</div>
+    
+    <input id="colorButton" type="button"
+           style="height:18px; width:18px; background:green;">        
+
+    
+    <script type="text/javascript">
+      var myPicker = new jscolor.color(document.getElementById('colorButton'), {required:false, valueElement:'hiddenHelper'});
+      myPicker.hidePicker = (function() {
+        var original = myPicker.hidePicker;
+        return function() {
+          console.log('selected color: ' + this.toString());
+          document.getElementsByTagName('BODY')[0].style.backgroundColor = '#'+this.toString();
+          return original();
+        };
+      })();  
+    </script>
+    
+  
+    <div style="height:16px;width:16px;border-width:1px;border-color:#111111" onclick="colorPicker(event)"></div>
+    
+    <div id="colorpicker">picker</div>
+    
+    <script>
+     $(document).ready(function(){
+       
+//       $('#color').click(function(){$('#color').value="qwe"});
+//       $('#colorpicker').ColorPicker({ flat: false }); 
+//       $('#colorpicker').ColorPicker({ flat: false }); 
+       
+       $("a").click(function(event){
+         alert("As you can see, the link no longer took you to jquery.com");
+         event.preventDefault();
+       });
+        
+        $("a").click(function(event){
+          event.preventDefault();
+          $(this).hide("slow");
+        });       
+        
+        $("a").addClass("test");
+     });
+    </script>
+    
+  </body>
+</html>

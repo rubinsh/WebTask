@@ -4,7 +4,7 @@
       %tbody.ui-state-default
         %tr
           %td{ :style => "width:20px;"}
-            %div{ :style => "height:16px;width:16px;background:#{category.color};" }
+            %div{ :class => "color", :style => "height:16px;width:16px;background:#{category.color};" }
           -#TODO: remove the id attribute from the tds #category_name #category_menu
           %td
             = link_to category_tasks_path(:category_id => category.id), :id => "category_link" do
