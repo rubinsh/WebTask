@@ -7,44 +7,42 @@
     <meta charset="utf-8">
     <title>Demo</title>
     <style>
-       a.test { font-weight: bold; }
+       div { font-weight: bold; }
     </style>       
   </head>
   <body>
-    <a href="http://jquery.com/">jQuery</a>
-    
-    <div id="divId" name="divName" style="height:16px;width:16px;background:green;"></div>
-    
-    <div >HERE</div>
-    
-    <input class="color {required:false}" type="button"
-           style="height:18px; width:18px; background:green;"
-           onchange="this.color = red">        
-    <input id="hiddenHelper" 
-           onchange="document.getElementsByTagName('BODY')[0].style.backgroundColor = '#'+this.color">
+    <input id="hiddenHelper" type="hidden">
 
-    <div >AND HERE</div>
+    <div >Input of class 'color' that hides its textual value</div>
     
-    <input id="colorButton" type="button"
+    <input class="color {required:false, valueElement:'hiddenHelper'}" type="button"
+           style="height:18px; width:18px; background:green;" >        
+
+    <div >Regular input that turns to a color and changes background by a local script</div>
+    
+    <input id="colorButton1" type="button"
            style="height:18px; width:18px; background:green;">        
 
-    
     <script type="text/javascript">
-      var myPicker = new jscolor.color(document.getElementById('colorButton'), {required:false, valueElement:'hiddenHelper'});
-      myPicker.hidePicker = (function() {
-        var original = myPicker.hidePicker;
+      var myPicker1 = new jscolor.color(document.getElementById('colorButton1'), {required:false, valueElement:'hiddenHelper'});
+      myPicker1.hidePicker = (function() {
+        var original = myPicker1.hidePicker;
         return function() {
-          console.log('selected color: ' + this.toString());
-          document.getElementsByTagName('BODY')[0].style.backgroundColor = '#'+this.toString();
+          console.log('selected color: ' + myPicker1.toString());
+          document.getElementsByTagName('BODY')[0].style.backgroundColor = '#' + myPicker1.toString();
           return original();
         };
       })();  
     </script>
     
+    <div >Regular input that turns to a color and changes background by a remote script</div>
+
+    <input id="colorButton" type="button"
+           style="height:18px; width:18px; background:green;">        
+
+    <script type="text/javascript"
+      src="javascripts/extensions/jscolor_save_on_hide.js?elementId=colorButton"/>
   
-    <div style="height:16px;width:16px;border-width:1px;border-color:#111111" onclick="colorPicker(event)"></div>
-    
-    <div id="colorpicker">picker</div>
     
     <script>
      $(document).ready(function(){
@@ -53,17 +51,6 @@
 //       $('#colorpicker').ColorPicker({ flat: false }); 
 //       $('#colorpicker').ColorPicker({ flat: false }); 
        
-       $("a").click(function(event){
-         alert("As you can see, the link no longer took you to jquery.com");
-         event.preventDefault();
-       });
-        
-        $("a").click(function(event){
-          event.preventDefault();
-          $(this).hide("slow");
-        });       
-        
-        $("a").addClass("test");
      });
     </script>
     

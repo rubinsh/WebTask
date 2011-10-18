@@ -4,7 +4,10 @@
       %tbody.ui-state-default
         %tr
           %td{ :style => "width:20px;"}
-            %div{ :class => "color", :style => "height:16px;width:16px;background:#{category.color};" }
+            %input{ :class => "color {required:false, valueElement:'hiddenColorValue'}",
+            :type => "button", :style => "height:18px; width:18px; background:#{category.color};" }
+            %input{ :id => "hiddenColorValue", :type => "hidden"}
+
           -#TODO: remove the id attribute from the tds #category_name #category_menu
           %td
             = link_to category_tasks_path(:category_id => category.id), :id => "category_link" do
