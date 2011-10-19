@@ -19,7 +19,7 @@
             <%= truncate task.name, :length => 60 %>
           </td>
 
-          <td id="task-categories" style="text-align:left;">
+          <td id="task-categories" >
             <% _MAX_DISPLAYED_CAT = 2 %>
             <% cat_index = 0 %>
             <% task.categories.each do |category| %>
@@ -28,8 +28,8 @@
                 <% break %>
               <% end %>
               <% cat_index += 1 %>
-              <td style="color:black; background:<%=category.color%>;
-                            border:1px solid <%=category.color%>; border-radius:3pt; text-align:center; ">
+              <td class="ui-state-default"
+                  style="background:<%=category.color%>; border-radius:3pt; text-align:center; ">
                 <%= truncate(category.name, :length => 16) %>
               </td>
             <% end %>

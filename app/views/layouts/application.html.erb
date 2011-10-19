@@ -4,6 +4,7 @@
   <script language="JavaScript" src="javascripts/jQuery.js"></script>
   <script type="text/javascript" src="javascripts/jscolor/jscolor.js"></script>
   <title><%= @title %></title>
+  <%= javascript_include_tag :ckeditor %>
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
   <%= render 'partials/stylesheets' %>
