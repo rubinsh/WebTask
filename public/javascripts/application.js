@@ -113,4 +113,30 @@ $(function () {
     $("div.category").droppableSetup();
 });
 
+// Save category color on jscolor.hidePicker
+// The jscolor loads during page load and only then changes the input elements to color
+// This function must run after jscolor and change the hidePicker behavior
+// Thats why the timeout is used, its bad.
+//
+//TODO: Find a diferent way for this function to run after jscolor or use a different color picker.
+//
+// Maybe change the input element to color here by 'new jscolor.color()' and only then handle the hidePicker.
+setTimeout(function() {
+    $(".color").each(function(index,element) {
+        element.color.hidePicker = (function() {
+            var original = element.color.hidePicker;
+            return function() {
+                $.ajax({
+                    url: '/categories/' + element.id + ".json",
+                    type: 'POST',
+                    data: { _method: 'PUT', category: { color: '#' + this.toString() } },
+                    async: true,
+                    dataType: 'json'
+                });
+             
+                return original();
+            };
+        })();
+    })
+}, 500);
 

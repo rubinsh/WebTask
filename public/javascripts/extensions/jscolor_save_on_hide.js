@@ -1,3 +1,15 @@
+colorElements = document.getElementsByClassName('color');
+for (i=0; i < colorElements.length; i++)
+{
+  var jscolor = colorElements[i];
+  console.log('colorElement: ' + jscolor.toString());
+
+
+
+}
+
+
+
 var elementId = "colorButton";
 
 var myPicker = new jscolor.color(document.getElementById(elementId), {required:false, valueElement:'hiddenHelper'});

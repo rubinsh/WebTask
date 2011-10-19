@@ -4,7 +4,7 @@
       %tbody.ui-state-default
         %tr
           %td{ :style => "width:20px;"}
-            %input{ :class => "color {required:false, valueElement:'hiddenColorValue'}",
+            %input{ :id => "#{category.id}", :class => "color {required:false, valueElement:'hiddenColorValue'}",
             :type => "button", :style => "height:18px; width:18px; background:#{category.color};" }
             %input{ :id => "hiddenColorValue", :type => "hidden"}
 
