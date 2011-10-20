@@ -19,6 +19,8 @@ gem 'haml'
 gem 'sass'
 gem 'chriseppstein-compass'
 #gem 'omniauth'
+#gem 'hpricot'
+#gem 'ruby_parser'
 
 
 

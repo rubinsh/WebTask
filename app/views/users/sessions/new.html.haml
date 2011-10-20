@@ -1,0 +1,26 @@
+#auth_form.prepend-7
+  #auth_form_content.span-9
+    %h2 Sign in
+    = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+      %p
+        %span.span-3= f.label "Email:"
+        %span= f.text_field :email
+        %span.span-3= f.label "Password:"
+        %span= f.password_field :password
+      - if devise_mapping.rememberable?
+        %p
+          = f.check_box :remember_me
+          = f.label :remember_me
+      %p= f.submit "Sign in"
+    %hr/
+    Already have an account on these services? Sign in with:
+    %br/
+    .oauth_buttons
+      = link_to "Facebook", user_omniauth_authorize_path(:facebook), :class => "facebook"
+      = link_to "Google", user_omniauth_authorize_path(:open_id, |
+        :openid_url => "https://www.google.com/accounts/o8/id"), |
+        :class => "google"                                       |
+    %br/
+    %br/
+%hr/
+= render :partial => "devise/shared/links"

@@ -1,0 +1,12 @@
+.header_background
+  .container
+    #header.span-24
+      .span-18.header_logo
+        / <h1></h1>
+      #user_bar.span-6.right
+        - if user_signed_in?
+          = link_to "Logout", destroy_user_session_path
+        - else
+          = link_to "Join WebTask", new_user_registration_path
+          |
+          \#{link_to "Login", new_user_session_path}

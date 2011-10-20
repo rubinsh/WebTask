@@ -1,0 +1,16 @@
+%script{:src => "/javascripts/jquery-defaultvalue-1.0.js", :type => "text/javascript"}
+%script{:charset => "UTF-8", :type => "text/javascript"}
+  $(function()
+  {
+  \// Define the css class your textbox will have, when showing default value
+  \//$('#new_task_input').setDefaultValue({ css : 'new_task_input'});
+  $('#create_new_task_textbox').setDefaultValue({ css: 'quiet' });
+  });
+.span-20.ui-widget-content.ui-corner-all{:style => "margin-bottom: 10px;"}
+  = form_for(Task.new, :remote => true)  do |f|
+    = f.text_field :name, :id => "create_new_task_textbox", |
+      :title => "Type here to create a new task..."         |
+    = submit_tag :Add
+%ul.button_list
+  #task-list.span-20
+    = render @tasks

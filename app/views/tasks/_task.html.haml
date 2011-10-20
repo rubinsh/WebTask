@@ -1,0 +1,25 @@
+= div_for(task) do
+  <li class="ui-state-default" id=#{task.to_param}>
+  %table
+    %tbody
+      %tr
+        %td#task_drag.task_drag{:style => "width:15px;"}
+          = image_tag "grab-icon.png"
+        %td#task-completed-checkbox{:style => "width:25px;"}
+          = check_box_tag "completed?", nil, task.completed? , :id => task.to_param
+          = hidden_field_tag "mark_complete_link_#{task.to_param}", mark_complete_url(:id => task.to_param)
+        <td id="task-content" style="width:450px;"
+        \#{link_to "", edit_task_path(task), :id => "task_link", :style => "visibility: hidden; width: 0px;"}
+        \#{truncate task.name, :length => 60}
+        %td#task-categories
+          - _MAX_DISPLAYED_CAT = 2
+          - cat_index = 0
+          - task.categories.each do |category|
+            - if (cat_index == _MAX_DISPLAYED_CAT)
+              %td{:style => "padding-left:1px; padding-right:5px"} ...
+              - break
+            - cat_index += 1
+            %td.ui-state-default{:style => "background:#{category.color}; border-radius:3pt; text-align:center; "}
+              = truncate(category.name, :length => 16)
+        %td{:style => "min-width:80px; text-align:right"}
+          = task.due_date
