@@ -22,6 +22,13 @@ class CategoriesController < TaskSystemController
     end
   end
 
+  def update
+    update! do |format|
+      format.html { redirect_to tasks_url}
+      format.js
+    end
+  end
+
   protected
   def begin_of_association_chain
     current_user

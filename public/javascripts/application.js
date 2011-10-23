@@ -114,23 +114,21 @@ $(function () {
 });
 
 
-// Save category color on jscolor.hidePicker
-// The jscolor loads during page load and only then changes the input elements to color
-// This function must run after jscolor and change the hidePicker behavior
-// Thats why the timeout is used, its bad.
-//
-//TODO: Find a diferent way for this function to run after jscolor or use a different color picker.
-//
-// Maybe change the input element to color here by 'new jscolor.color()' and only then handle the hidePicker.
-setTimeout(function() {
-    $(".color").each(function(index,element) {
-        element.color.hidePicker = (function() {
-            var original = element.color.hidePicker;            
+// JSColor - Change the category color button to ColorSelectors and save the category color on jscolor.hidePicker
+$(function() {
+    var colorPickers = new Array();
+//    var hiddenColorValueElement = $("#hiddenColorValue");
+    $(".CPicker").each(function(index,element) {
+        colorPickers[index] = new jscolor.color(element, {required:false, valueElement:'hiddenColorValue'});
+//        colorPickers[index] = new jscolor.color(element, {required:false, valueElement:hiddenColorValueElement});
+//        colorPickers[index] = new jscolor.color(element, {required:false, valueElement:$("#hiddenColorValue")});
+        colorPickers[index].hidePicker = (function() {
+            var original = colorPickers[index].hidePicker;            
             return function() {
                 $.ajax({
                     url: '/categories/' + element.id + ".json",
                     type: 'POST',
-                    data: { _method: 'PUT', category: { color: '#' + this.toString() } },
+                    data: { _method: 'PUT', category: { color: '#' + colorPickers[index].toString() } },
                     async: true,
                     dataType: 'json'
                 });
@@ -139,7 +137,7 @@ setTimeout(function() {
             };
         })();
     })
-}, 500);
+});
 
 // Providing CKEDITOR 'read-only' toggling functionality. 
 (function()
