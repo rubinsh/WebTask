@@ -19,7 +19,8 @@
               %td{:style => "padding-left:1px; padding-right:5px"} ...
               - break
             - cat_index += 1
-            %td.ui-state-default{:style => "background:#{category.color}; border-radius:3pt; text-align:center; "}
+            %td{ :class => "task-category-color_#{dom_id(category)}", 
+            :style => "background:#{category.color}; border:solid 1pt lightblue; border-radius:3pt; text-align:center; "}
               = truncate(category.name, :length => 16)
         %td{:style => "min-width:80px; text-align:right"}
           = task.due_date

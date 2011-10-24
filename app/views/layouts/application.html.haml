@@ -1,11 +1,10 @@
 !!!
 %html
   %head
-    %script{:language => "JavaScript", :src => "javascripts/jQuery.js"}
-    %script{:src => "javascripts/jscolor/jscolor.js", :type => "text/javascript"}
     %title= @title
     = javascript_include_tag :ckeditor
     = javascript_include_tag :defaults
+    = javascript_include_tag "jscolor/jscolor"
     = csrf_meta_tag
     = render 'partials/stylesheets'
     = render 'partials/google_analytics'

@@ -6,7 +6,7 @@
           %td{ :style => "width:20px;"}
             %input{ :id => "#{category.id}", :class => "CPicker",
             :type => "button", :style => "height:18px; width:18px; background:#{category.color};" }
-            %input{ :id => "hiddenColorValue", :type => "hidden"}
+            %input{ :id => "hiddenColorValue_#{dom_id(category)}", :type => "hidden"}
 
           -#TODO: remove the id attribute from the tds #category_name #category_menu
           %td

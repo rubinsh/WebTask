@@ -1,0 +1,6 @@
+// Update the category color on each relevant task row
+$(function() {
+    $(".task-category-color_<%=dom_id(@category)%>").each(function(index,element) {
+        element.style.background = '<%=@category.color%>';
+    })
+});

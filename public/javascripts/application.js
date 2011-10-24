@@ -117,20 +117,16 @@ $(function () {
 // JSColor - Change the category color button to ColorSelectors and save the category color on jscolor.hidePicker
 $(function() {
     var colorPickers = new Array();
-//    var hiddenColorValueElement = $("#hiddenColorValue");
     $(".CPicker").each(function(index,element) {
-        colorPickers[index] = new jscolor.color(element, {required:false, valueElement:'hiddenColorValue'});
-//        colorPickers[index] = new jscolor.color(element, {required:false, valueElement:hiddenColorValueElement});
-//        colorPickers[index] = new jscolor.color(element, {required:false, valueElement:$("#hiddenColorValue")});
+        colorPickers[index] = new jscolor.color(element, {required:false, valueElement:'hiddenColorValue_category_' + element.id });
         colorPickers[index].hidePicker = (function() {
             var original = colorPickers[index].hidePicker;            
             return function() {
                 $.ajax({
-                    url: '/categories/' + element.id + ".json",
+                    url: '/categories/' + element.id + ".js",
                     type: 'POST',
                     data: { _method: 'PUT', category: { color: '#' + colorPickers[index].toString() } },
-                    async: true,
-                    dataType: 'json'
+                    async: true
                 });
              
                 return original();
