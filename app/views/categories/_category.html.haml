@@ -4,7 +4,10 @@
     %tbody
       %tr
         %td{ :style => "width:20px;"}
-          %div{ :style => "height:16px;width:16px;background:#{category.color};"}
+          %input{ :id => "#{category.id}", :class => "CPicker",
+          :type => "button", :style => "height:18px; width:18px; background:#{category.color};" }
+          %input{ :id => "hiddenColorValue_#{dom_id(category)}", :type => "hidden"}
+
         -#TODO: remove the id attribute from the tds #category_name #category_menu
         %td{ :style => "width:600px;"}
           = link_to category_path(category) do

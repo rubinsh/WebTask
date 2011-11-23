@@ -6,11 +6,29 @@
   \//$('#new_task_input').setDefaultValue({ css : 'new_task_input'});
   $('#create_new_task_textbox').setDefaultValue({ css: 'quiet' });
   });
-.span-20.ui-widget-content.ui-corner-all{:style => "margin-bottom: 10px;"}
+.span-20.ui-widget-content.ui-corner-all
   = form_for(Task.new, :remote => true)  do |f|
-    = f.text_field :name, :id => "create_new_task_textbox", |
-      :title => "Type here to create a new task..."         |
+    = f.text_field :name, :id => "create_new_task_textbox", :title => "Type here to create a new task..."
     = submit_tag :Add
-%ul.button_list
-  #task-list.span-20
-    = render @tasks
+
+- if (@open_tasks.any?)
+  %table.ui-widget-header.ui-corner-all{:style => "margin-top: 10px; margin-bottom: 4px"}
+    %tbody
+      %tr
+        %td
+          %span.widget_header_text
+            Open Tasks
+  %ul.button_list
+    #task-list-open.span-20
+      = render @open_tasks
+
+- if (@completed_tasks.any?)
+  %table.ui-widget-header.ui-corner-all{:style => "margin-top: 10px; margin-bottom: 4px"}
+    %tbody
+      %tr
+        %td
+          %span.widget_header_text
+            Completed Tasks
+  %ul.button_list
+    #task-list-completed.span-20
+      = render @completed_tasks

@@ -7,6 +7,12 @@ class TasksController < TaskSystemController
 
   belongs_to :category, :optional => true
 
+  def index
+    index! {
+      @open_tasks = @tasks.where(:completed=>false)
+      @completed_tasks = @tasks.where(:completed=>true)
+    }
+  end
 
   #TODO: this should move to update method with params
   def mark_complete

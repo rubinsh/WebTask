@@ -1,5 +1,0 @@
-$("#new_category_name").val('');
-$("#categories").append($("<%= escape_javascript(render :partial => "category_sidebar",
-                            :object => @category,
-                            :as => :category) %>").fadeIn(500));
-$("#category_<%= @category.to_param %>").droppableSetup();
