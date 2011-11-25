@@ -37,8 +37,9 @@ GEM
     builder (2.1.2)
     chriseppstein-compass (0.8.17)
       haml (>= 2.2.0)
-    ckeditor (3.5.0)
-      mime-types (>= 1.16)
+    ckeditor (3.6.2)
+      mime-types (~> 1.16)
+      orm_adapter (~> 0.0.5)
     devise (1.4.7)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.0.3)
@@ -140,7 +141,7 @@ PLATFORMS
 DEPENDENCIES
   annotate
   chriseppstein-compass
-  ckeditor (= 3.5.0)
+  ckeditor (= 3.6.2)
   devise
   haml
   has_scope

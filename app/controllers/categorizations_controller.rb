@@ -7,10 +7,11 @@ class CategorizationsController < TaskSystemController
   respond_to :js, :json, :xml, :html
 
   def create
-
     #prevent the record from being added twice
-    #TODO: this should be done in the db level using uniq or primary key that is combination of category and task id's
-    return unless Categorization.where(:task_id => params[:task_id], :category_id => params[:category_id]).empty?
+    if  (Categorization.where(:task_id => params[:task_id], :category_id => params[:category_id]).any?)
+      flash[:alert] = "The task already belongs to that category"
+      return
+    end
 
     @categorization = Categorization.new()
     @categorization.category_id = params[:category_id]
