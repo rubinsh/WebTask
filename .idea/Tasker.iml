@@ -115,8 +115,8 @@
     <orderEntry type="library" scope="PROVIDED" name="abstract (v1.0.0, RVM: ruby-1.9.2-p290 [webtask]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="activeresource (v3.0.10, RVM: ruby-1.9.2-p290 [webtask]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mime-types (v1.16, RVM: ruby-1.9.2-p290 [webtask]) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="arel (v2.0.10, RVM: ruby-1.9.2-p290 [webtask]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="activerecord (v3.0.10, RVM: ruby-1.9.2-p290 [webtask]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="arel (v2.0.10, RVM: ruby-1.9.2-p290 [webtask]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="json (v1.6.1, RVM: ruby-1.9.2-p290 [webtask]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="oa-core (v0.3.0, RVM: ruby-1.9.2-p290 [webtask]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bundler (v1.0.17, RVM: ruby-1.9.2-p290 [webtask]) [gem]" level="application" />
@@ -136,14 +136,13 @@
     <orderEntry type="library" scope="PROVIDED" name="warden (v1.0.6, RVM: ruby-1.9.2-p290 [webtask]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="oauth (v0.4.5, RVM: ruby-1.9.2-p290 [webtask]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="jquery-rails (v1.0.14, RVM: ruby-1.9.2-p290 [webtask]) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="tiny_mce (v0.1.8, RVM: ruby-1.9.2-p290 [webtask]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="i18n (v0.5.0, RVM: ruby-1.9.2-p290 [webtask]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rake (v0.9.2, RVM: ruby-1.9.2-p290 [webtask]) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="builder (v2.1.2, RVM: ruby-1.9.2-p290 [webtask]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="oa-oauth (v0.3.0, RVM: ruby-1.9.2-p290 [webtask]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="builder (v2.1.2, RVM: ruby-1.9.2-p290 [webtask]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="orm_adapter (v0.0.5, RVM: ruby-1.9.2-p290 [webtask]) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="ruby-openid-apps-discovery (v1.2.0, RVM: ruby-1.9.2-p290 [webtask]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="tzinfo (v0.3.30, RVM: ruby-1.9.2-p290 [webtask]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="ruby-openid-apps-discovery (v1.2.0, RVM: ruby-1.9.2-p290 [webtask]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="nokogiri (v1.5.0, RVM: ruby-1.9.2-p290 [webtask]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack-test (v0.5.7, RVM: ruby-1.9.2-p290 [webtask]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="actionpack (v3.0.10, RVM: ruby-1.9.2-p290 [webtask]) [gem]" level="application" />
