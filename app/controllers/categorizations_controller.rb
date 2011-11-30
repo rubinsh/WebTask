@@ -8,8 +8,8 @@ class CategorizationsController < TaskSystemController
 
   def create
     #prevent the record from being added twice
-    if  (Categorization.where(:task_id => params[:task_id], :category_id => params[:category_id]).any?)
-      flash[:alert] = "The task already belongs to that category"
+    if  (Categorization.where(:task_id => params[:task_id], :category_id => params[:category_id]).exists?)
+      render :partial => "notify_categorization_existence"
       return
     end
 
