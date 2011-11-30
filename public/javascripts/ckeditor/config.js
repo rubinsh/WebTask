@@ -26,7 +26,7 @@ CKEDITOR.editorConfig = function( config )
   config.removePlugins = 'elementspath';
   
   config.toolbar = 'Customed';
-  
+
   config.toolbar_Empty =
     [
     ];

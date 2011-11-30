@@ -14,10 +14,11 @@
       CKEDITOR.replace( 'description' );
 
       // Turn CKEditor into 'ready-only' mode.
-      CKEDITOR.instances.description.readOnly( true );      
+      CKEDITOR.instances.description.readOnly( true );
 
       // Try to empty the toolbar
       CKEDITOR.instances.description.config.toolbar = 'Empty';
+
     %b Due date:
     = @task.due_date
   = link_to 'Edit', edit_task_path(@task)

@@ -12,15 +12,6 @@
           \#{link_to "", edit_task_path(task), :id => "task_link", :style => "visibility: hidden; width: 0px;"}
           \#{truncate task.name, :length => 60}
         %td#task-categories
-          - _MAX_DISPLAYED_CAT = 2
-          - cat_index = 0
-          - task.categories.each do |category|
-            - if (cat_index == _MAX_DISPLAYED_CAT)
-              %td{:style => "padding-left:1px; padding-right:5px"} ...
-              - break
-            - cat_index += 1
-            %td{ :class => "task-category-color_#{dom_id(category)}", 
-            :style => "background:#{category.color}; border:solid 1pt lightblue; border-radius:3pt; text-align:center; "}
-              = truncate(category.name, :length => 16)
+          = render 'task_categories_mini_bar', :task => task
         %td{:style => "min-width:80px; text-align:right"}
           = task.due_date

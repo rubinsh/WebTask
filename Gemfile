@@ -9,7 +9,7 @@ gem 'sqlite3'
 
 # gem 'sqlite3-ruby', :require => 'sqlite3', :group => :development
 gem 'jquery-rails'
-gem 'ckeditor', '3.5.0'
+gem 'ckeditor', '3.6.2'
 gem 'devise'
 gem "oa-oauth", :require => "omniauth/oauth"
 gem 'oa-openid', :require => 'omniauth/openid'

@@ -7,7 +7,6 @@ $(function() {
 
 });
 
-
 $(function() {
     $( "#sortable" ).sortable();
     $( "#sortable" ).disableSelection();
@@ -135,7 +134,7 @@ $(function() {
     })
 });
 
-// Providing CKEDITOR 'read-only' toggling functionality. 
+// Providing CKEDITOR 'read-only' toggling functionality.
 (function()
 {
    var cancelEvent = function( evt )
@@ -145,7 +144,6 @@ $(function() {
 
    CKEDITOR.editor.prototype.readOnly = function( isReadOnly )
    {
-      // *** this.document.$ is undefined ***
       // Turn off contentEditable.
       //this.document.$.body.disabled = isReadOnly;
       //CKEDITOR.env.ie ? this.document.$.body.contentEditable = !isReadOnly
