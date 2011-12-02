@@ -2,7 +2,6 @@ source 'http://rubygems.org'
 source 'http://gems.github.com/'
 
 gem 'rails', '3.0.10'
-gem 'sqlite3'
 
 gem 'jquery-rails'
 gem 'heroku'
@@ -18,6 +17,7 @@ gem 'sass'
 gem 'chriseppstein-compass'
 
 group :development, :test do
+  gem 'sqlite3'
   gem 'webrat'
   gem 'test-unit'
   gem 'annotate'
