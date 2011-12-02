@@ -23,6 +23,10 @@ group :development, :test do
   gem 'annotate'
 end
 
+group :production, :staging do
+  gem "pg"
+end
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
