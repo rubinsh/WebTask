@@ -2,13 +2,11 @@ source 'http://rubygems.org'
 source 'http://gems.github.com/'
 
 gem 'rails', '3.0.10'
-
 gem 'sqlite3'
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-# gem 'sqlite3-ruby', :require => 'sqlite3', :group => :development
 gem 'jquery-rails'
+gem 'heroku'
+gem 'taps'
 gem 'ckeditor', '3.6.2'
 gem 'devise'
 gem "oa-oauth", :require => "omniauth/oauth"
@@ -18,6 +16,17 @@ gem 'inherited_resources'
 gem 'haml'
 gem 'sass'
 gem 'chriseppstein-compass'
+
+group :development, :test do
+  gem 'webrat'
+  gem 'test-unit'
+  gem 'annotate'
+end
+
+# Bundle edge Rails instead:
+# gem 'rails', :git => 'git://github.com/rails/rails.git'
+
+# gem 'sqlite3-ruby', :require => 'sqlite3', :group => :development
 #gem 'omniauth'
 #gem 'hpricot'
 #gem 'ruby_parser'
@@ -43,9 +52,4 @@ gem 'chriseppstein-compass'
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
 # and rake tasks are available in development mode:
- group :development, :test do
-   gem 'webrat'
-   gem 'test-unit'
-   gem 'annotate'
- end
 
