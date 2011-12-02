@@ -7,7 +7,7 @@ gem 'sqlite3'
 gem 'jquery-rails'
 gem 'heroku'
 gem 'taps'
-gem 'omniauth', '0.2.6'
+gem 'omniauth'
 gem 'ckeditor', '3.6.2'
 gem 'devise'
 gem "oa-oauth", :require => "omniauth/oauth"
