@@ -12,8 +12,6 @@
     = render "layouts/header"
     .container
       #main.span-24.container_12
-        - flash.each do |key, value|
-          = content_tag(:div, value, :class => "flash #{key}")
         = content_tag(:p, notice, :class => 'success') if notice.present?
         = content_tag(:p, alert, :class => 'alert') if alert.present?
         = content_for?(:content) ? yield(:content) : yield

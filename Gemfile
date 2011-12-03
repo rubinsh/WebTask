@@ -7,16 +7,18 @@ gem 'sqlite3'
 gem 'jquery-rails'
 gem 'heroku'
 gem 'taps'
-gem 'omniauth', '~> 0.3.2'
 gem 'ckeditor', '3.6.2'
-gem 'devise'
-gem "oa-oauth", :require => "omniauth/oauth"
-gem 'oa-openid', :require => 'omniauth/openid'
 gem 'has_scope'
 gem 'inherited_resources'
 gem 'haml'
 gem 'sass'
 gem 'chriseppstein-compass'
+
+# omniauth and devise are old, be CAREFULL when upgrading, it prevents the - rake db:migrate from runing.
+gem 'omniauth', '0.2.6'
+gem 'devise', '1.3.4'
+gem "oa-oauth", :require => "omniauth/oauth"
+gem 'oa-openid', :require => 'omniauth/openid'
 
 group :development, :test do
   gem 'webrat'
