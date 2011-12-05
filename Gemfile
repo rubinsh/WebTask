@@ -14,7 +14,7 @@ gem 'haml'
 gem 'sass'
 gem 'chriseppstein-compass'
 
-# omniauth and devise are old, be CAREFULL when upgrading, it prevents the - rake db:migrate from running. 1.3.4
+# omniauth and devise are old, be CAREFULL when upgrading, it prevents the - rake db:migrate from running.
 gem 'omniauth', '0.2.6'
 gem 'devise', '1.4.8'
 gem "oa-oauth", :require => "omniauth/oauth"
