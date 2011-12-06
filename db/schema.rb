@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111010102300) do
+ActiveRecord::Schema.define(:version => 20111123102533) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(:version => 20111010102300) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "categorizations", ["category_id", "task_id"], :name => "index_categorizations_on_category_id_and_task_id", :unique => true
 
   create_table "ckeditor_assets", :force => true do |t|
     t.string   "data_file_name",                                 :null => false
@@ -50,8 +52,8 @@ ActiveRecord::Schema.define(:version => 20111010102300) do
   create_table "tasks", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "description", :limit => 255
-    t.boolean  "completed",                  :default => false
+    t.text     "description"
+    t.boolean  "completed", :default => false
     t.date     "due_date"
     t.string   "name"
     t.integer  "owner_id"
