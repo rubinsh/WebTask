@@ -1,8 +1,7 @@
-.bundle
 .idea/workspace.xml
 .idea/tasks.xml
+.idea/*
 db/*.sqlite3*
-log/*.log
 *.log
 tmp/**/*
 tmp/*
@@ -11,3 +10,21 @@ doc/app
 *.swp
 * ̃
 .rvmrc
+*.rbc
+*.sassc
+.sass-cache
+capybara-*.html
+.rspec
+/.bundle
+/vendor/bundle
+/log/*
+/tmp/*
+/db/*.sqlite3
+/public/system/*
+/coverage/
+/spec/tmp/*
+**.orig
+config/*.yml
+rerun.txt
+pickle-email-*.html
+
