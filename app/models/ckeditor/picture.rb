@@ -1,4 +1,8 @@
 class Ckeditor::Picture < Ckeditor::Asset
+
+  #TODO: The file attachment process is unsupported by heroku, we haven't pay for this option.
+  # Be careful with heroku when uncomenting this file.
+
   #has_attached_file :data,
   #                  :url  => "/ckeditor_assets/pictures/:id/:style_:basename.:extension",
   #                  :path => ":rails_root/public/ckeditor_assets/pictures/:id/:style_:basename.:extension",

@@ -1,4 +1,8 @@
 class Ckeditor::AttachmentFile < Ckeditor::Asset
+
+  #TODO: The file attachment process is unsupported by heroku, we haven't pay for this option.
+  # Be careful with heroku when uncomenting this file.
+
   #has_attached_file :data,
   #                  :url => "/ckeditor_assets/attachments/:id/:filename",
   #                  :path => ":rails_root/public/ckeditor_assets/attachments/:id/:filename"
