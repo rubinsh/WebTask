@@ -22,7 +22,7 @@ $(function() {
     {
         var $target = $(event.target);
         var taskId = $target.attr("id");
-        var theTask = $('#mark_complete_link_' + taskId);
+        var theTask = $('#toggle_complete_link_' + taskId);
         $.post(theTask.attr('value'), theTask.serialize(), null, "script");
         return false;
     }));
@@ -144,6 +144,9 @@ $(function() {
 
    CKEDITOR.editor.prototype.readOnly = function( isReadOnly )
    {
+
+       $("#cke_top_description").hide();
+
       // Turn off contentEditable.
       //this.document.$.body.disabled = isReadOnly;
       //CKEDITOR.env.ie ? this.document.$.body.contentEditable = !isReadOnly

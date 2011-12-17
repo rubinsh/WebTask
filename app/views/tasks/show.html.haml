@@ -1,6 +1,13 @@
+%script{:charset => "UTF-8", :type => "text/javascript"}
+  $(function()
+  {
+  $("#cke_top_description").hide();
+  });
+
+
 .prepend-1.span-19
   = javascript_include_tag :ckeditor
-  %p#notice= notice
+  -#%p#notice= notice
   %p
     %h3= @task.name
   %p

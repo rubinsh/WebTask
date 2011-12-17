@@ -1,0 +1,23 @@
+var toggled_task = $("#task_" + #{@task.to_param});
+var toggled_task_checkbox = $("input[name=completed_checkbox_task_" + #{@task.to_param} + "]");
+
+if (window.location.href.indexOf("completed=true") <= 0) $("#open-task-container").fadeIn("slow");
+if (window.location.href.indexOf("completed=false") <= 0) $("#completed-task-container").fadeIn("slow");
+
+- if @task.completed?
+  toggled_task_checkbox.prop("checked", true);
+  toggled_task.fadeOut("slow", function(){
+  $(this).appendTo($("#task-list-completed")).fadeIn("slow", function(){
+  if (($("#task-list-open div").length <= 0)) $("#open-task-container").fadeOut("slow");
+  if (($("#task-list-completed div").length <= 0)) $("#completed-task-container").fadeIn("slow");
+  });
+  });
+- else
+  toggled_task_checkbox.prop("checked", false);
+  toggled_task.fadeOut("slow", function(){
+  $(this).appendTo($("#task-list-open")).fadeIn("slow", function(){
+  if (($("#task-list-completed div").length <= 0)) $("#completed-task-container").fadeOut("slow");
+  if (($("#task-list-open div").length <= 0)) $("#open-task-container").fadeIn("slow");
+  });
+  });
+

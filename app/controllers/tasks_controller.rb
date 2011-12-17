@@ -14,10 +14,17 @@ class TasksController < TaskSystemController
     }
   end
 
-  #TODO: this should move to update method with params
-  def mark_complete
-    @task = TasksHelper.try_get_task(current_user, params[:id])
+  def create
+    create! { tasks_path(:completed => false)}
+  end
 
+  def update
+    update! { tasks_path }
+  end
+
+  #TODO: this should move to update method with params
+  def toggle_complete
+    @task = TasksHelper.try_get_task(current_user, params[:id])
     if (@task.nil?)
       render :action => 'not_found'
     else
@@ -33,14 +40,6 @@ class TasksController < TaskSystemController
         end
       end
     end
-  end
-
-  def create
-    create! { tasks_path(:completed => false)}
-  end
-
-  def update
-    update! { tasks_path }
   end
 
   protected

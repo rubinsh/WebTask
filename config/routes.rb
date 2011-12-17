@@ -18,7 +18,7 @@ Tasker::Application.routes.draw do
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
-  match 'tasks/:id/mark_complete' => 'tasks#mark_complete', :as => :mark_complete
+  match 'tasks/:id/toggle_complete' => 'tasks#toggle_complete', :as => :toggle_complete
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
