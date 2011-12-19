@@ -1,12 +1,4 @@
-%script{:charset => "UTF-8", :type => "text/javascript"}
-  $(function()
-  {
-  $("#cke_top_description").hide();
-  });
-
-
 .prepend-1.span-19
-  = javascript_include_tag :ckeditor
   -#%p#notice= notice
   %p
     %h3= @task.name
@@ -15,17 +7,7 @@
     = @task.completed
   %p
     %b Description:
-    %textarea#description{:name => "description"}= @task.description
-    :javascript
-      // Replacing the description text area to a ckeditor
-      CKEDITOR.replace( 'description' );
-
-      // Turn CKEditor into 'ready-only' mode.
-      CKEDITOR.instances.description.readOnly( true );
-
-      // Try to empty the toolbar
-      CKEDITOR.instances.description.config.toolbar = 'Empty';
-
+    %textarea#task-show-description{:name => "description"}= @task.description
     %b Due date:
     = @task.due_date
   = link_to 'Edit', edit_task_path(@task)

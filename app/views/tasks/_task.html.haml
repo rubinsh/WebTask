@@ -8,10 +8,10 @@
         %td#task-completed-checkbox{:style => "width:25px;"}
           = check_box_tag "completed_checkbox_task_" + task.to_param, nil, task.completed? , :id => task.to_param
           = hidden_field_tag "toggle_complete_link_#{task.to_param}", toggle_complete_url(:id => task.to_param)
-        %td#task-content{:style => "width:450px;"}
+        %td#task-content{ :style => "width:450px;"}
           \#{link_to "", edit_task_path(task), :id => "task_link", :style => "visibility: hidden; width: 0px;"}
           \#{truncate task.name, :length => 60}
-        %td#task-categories
+        %td#task-categories{ :class => "#{dom_id(task)}_categories"}
           = render 'task_categories_mini_bar', :task => task
         %td{:style => "min-width:80px; text-align:right"}
           = task.due_date

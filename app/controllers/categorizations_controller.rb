@@ -13,6 +13,12 @@ class CategorizationsController < TaskSystemController
       return
     end
 
+    @task = TasksHelper.try_get_task(current_user, params[:task_id])
+    if (@task.nil?)
+      render :action => 'not_found'
+      return
+    end
+
     @categorization = Categorization.new()
     @categorization.category_id = params[:category_id]
     @categorization.task_id = params[:task_id]
