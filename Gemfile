@@ -19,6 +19,7 @@ gem 'omniauth', '0.2.6'
 gem 'devise', '1.4.8'
 gem "oa-oauth", :require => "omniauth/oauth"
 gem 'oa-openid', :require => 'omniauth/openid'
+gem "faraday", "~> 0.6.1"
 
 group :development, :test do
   gem 'webrat'
