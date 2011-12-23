@@ -1,0 +1,4 @@
+-#$("#comments").append($("#{escape_javascript(render(@comment))}").fadeIn(500));
+-#$(".comment_list").html(#{escape_javascript(render(:partial => 'comments/comment', :locals => {:comment => @comment}))})
+
+$("#new_comment_textbox").val('');

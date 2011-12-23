@@ -10,13 +10,23 @@ CKEDITOR.editorConfig = function( config )
 	// config.uiColor = '#AADC6E';
 
     config.language = 'en';
-    config.height = '200px';
+    config.height = '100px';
     config.width = '600px';
     config.resize_enabled = false;
+    config.extraPlugins = 'autogrow';
     config.removePlugins = 'elementspath';
 
-    config.toolbar = 'Customed';
-
+    config.toolbar = 'Minimal';
+    config.toolbar_Empty =
+      [
+      ];
+    config.toolbar_Minimal =
+      [
+          ['Bold','Italic','Underline','-','TextColor','BGColor'],
+          ['Font','FontSize'],
+          ['NumberedList','BulletedList'],
+          ['Undo','Redo','-','Find','-', 'Scayt','Link'],
+      ];
     config.toolbar_Customed =
       [
           ['Cut','Copy','Paste','PasteText','-','Undo','Redo','-','Find','Replace','-','SpellChecker', 'Scayt'],
@@ -25,7 +35,6 @@ CKEDITOR.editorConfig = function( config )
           ['NumberedList','BulletedList','-','Outdent','Indent','Blockquote'],
           ['Font','FontSize','Styles','Format']
       ];
-
     config.toolbar_Easy =
       [
           ['Source','-','Preview','Templates'],

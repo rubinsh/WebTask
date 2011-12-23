@@ -7,6 +7,7 @@ class TaskTest < ActiveSupport::TestCase
   end
 end
 
+
 # == Schema Information
 #
 # Table name: tasks
@@ -14,7 +15,7 @@ end
 #  id          :integer         not null, primary key
 #  created_at  :datetime
 #  updated_at  :datetime
-#  description :text(255)
+#  description :text
 #  completed   :boolean         default(FALSE)
 #  due_date    :date
 #  name        :string(255)

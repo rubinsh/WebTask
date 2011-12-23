@@ -16,6 +16,9 @@ Tasker::Application.routes.draw do
     resources :tasks, :shallow => true
   end
 
+  resources :comments do
+  end
+
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   match 'tasks/:id/toggle_complete' => 'tasks#toggle_complete', :as => :toggle_complete

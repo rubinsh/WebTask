@@ -33,6 +33,7 @@ class User < ActiveRecord::Base
 #  has_and_belongs_to_many :tasks
   has_many :tasks, :foreign_key => "owner_id"
   has_many :categories
+  has_many :comments
 
   def self.find_for_google_openid(access_token, signed_in_resource=nil)
     data = access_token['user_info']

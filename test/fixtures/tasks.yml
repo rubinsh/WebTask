@@ -12,6 +12,7 @@ two:
   description: MyText
   due_date: 2011-01-05 19:53:39
 
+
 # == Schema Information
 #
 # Table name: tasks
@@ -19,7 +20,7 @@ two:
 #  id          :integer         not null, primary key
 #  created_at  :datetime
 #  updated_at  :datetime
-#  description :text(255)
+#  description :text
 #  completed   :boolean         default(FALSE)
 #  due_date    :date
 #  name        :string(255)

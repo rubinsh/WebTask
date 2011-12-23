@@ -5,6 +5,7 @@ class Task < ActiveRecord::Base
   belongs_to :owner, :class_name => "User"
   has_many :categories, :through => :categorizations
   has_many :categorizations, :dependent => :destroy
+  has_many :comments, :dependent => :destroy
 
   scope :completed, lambda { |completed|
     if (completed == "true" || completed == "false")
@@ -27,6 +28,7 @@ class Task < ActiveRecord::Base
 
 end
 
+
 # == Schema Information
 #
 # Table name: tasks
@@ -34,7 +36,7 @@ end
 #  id          :integer         not null, primary key
 #  created_at  :datetime
 #  updated_at  :datetime
-#  description :text(255)
+#  description :text
 #  completed   :boolean         default(FALSE)
 #  due_date    :date
 #  name        :string(255)

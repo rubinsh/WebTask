@@ -112,13 +112,40 @@ $(function () {
     $("div.category").droppableSetup();
 });
 
-// Use CKEDITOR to display the task description.
+// Use CKEDITOR for all text editors.
 $(function () {
-    $( '#task_description' ).ckeditor();
+    $( '#task_description' ).ckeditor({height: "200px"});
+    $( '#new_comment_textbox' ).ckeditor();
+    $( '#task-show-description' ).ckeditor( {readOnly: true, height: "200px"});
+    $( '.existing_comment' ).ckeditor({readOnly: true});
 
-    $( '#task-show-description' ).ckeditor( {
-    readOnly: true
+    CKEDITOR.on('instanceReady', function(e) {
+        $('.cke_toolbox_collapser').hide();
     });
+});
+
+// Toggle comment readonly on link click
+$(function () {
+    $(".comment_update_link").hide();
+
+    $(".comment_edit_link").click(function(){
+      var comment_id = $(this).attr("comment_id")
+      var editor = $('#' + comment_id + "_content").ckeditorGet();
+      editor.setReadOnly(false);
+//      this.hide();
+        $('#' + comment_id + "_edit_link").hide();
+        $('#' + comment_id + "_update_link").show();
+    });
+
+    $(".comment_update_link").click(function(){
+      var comment_id = $(this).attr("comment_id")
+      var editor = $('#' + comment_id + "_content").ckeditorGet();
+      editor.setReadOnly(true);
+//      this.hide();
+        $('#' + comment_id + "_update_link").hide();
+        $('#' + comment_id + "_edit_link").show();
+    });
+
 });
 
 // JSColor - Change the category color button to ColorSelectors and save the category color on jscolor.hidePicker
