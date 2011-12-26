@@ -3,7 +3,7 @@
     %tr
       %h3= @task.name
     %tr
-      - if not @task.description.empty?
+      - unless (@task.description == nil or  @task.description.empty?)
         %b Description:
         %textarea#task-show-description{:name => "description"}= @task.description
     %tr.span-10
@@ -32,3 +32,15 @@
       = hidden_field_tag 'task_id', @task.id
       = f.text_area :content, :id => "new_comment_textbox"
       = submit_tag :Add
+
+
+-#http://webjazz.blogspot.com/2007/02/two-submit-buttons-with-formremotetag.html
+
+-#<div id="image_collection">
+-#<% @images.each do |image| %>
+-# <%= check_box "selected_images", image.id %>
+-# <%= image_tag image.path %>
+-#<% end %>
+-#<%= link_to_remote "Group", :url => { :action => :group }, :submit => :image_collection %>
+-#<%= link_to_remote "Delete", :url => { :action => :delete }, :submit => :image_collection %>
+-#</div>

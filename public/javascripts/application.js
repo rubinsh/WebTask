@@ -132,18 +132,16 @@ $(function () {
       var comment_id = $(this).attr("comment_id")
       var editor = $('#' + comment_id + "_content").ckeditorGet();
       editor.setReadOnly(false);
-//      this.hide();
-        $('#' + comment_id + "_edit_link").hide();
-        $('#' + comment_id + "_update_link").show();
+      $('#' + comment_id + "_edit_link").hide();
+      $('#' + comment_id + "_update_link").show();
     });
 
     $(".comment_update_link").click(function(){
       var comment_id = $(this).attr("comment_id")
       var editor = $('#' + comment_id + "_content").ckeditorGet();
       editor.setReadOnly(true);
-//      this.hide();
-        $('#' + comment_id + "_update_link").hide();
-        $('#' + comment_id + "_edit_link").show();
+      $('#' + comment_id + "_update_link").hide();
+      $('#' + comment_id + "_edit_link").show();
     });
 
 });
