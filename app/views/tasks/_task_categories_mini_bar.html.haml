@@ -1,3 +1,5 @@
+-#%table
+-#  %tr
 - _MAX_DISPLAYED_CAT = 3
 - cat_index = 0
 - task.categories.each do |category|
@@ -8,3 +10,9 @@
   %td{ :class => "task-category-color_#{dom_id(category)}",
   :style => "width:60px; background:#{category.color}; border:solid 1pt lightblue; border-radius:3pt; text-align:center; "}
     = truncate(category.name, :length => 10)
+
+
+    -#- (1.._MAX_DISPLAYED_CAT).each do |cat_index|
+    -#  %td{:class => "#{dom_id(task)}_category_container_#{cat_index}", :available => "true"}
+    -#    %div{:style => "visibility:hidden; width:60px; border:solid 1pt lightblue; border-radius:3pt; text-align:center; "}
+    -#%td{:style => "visibility:hidden; padding-left:1px; padding-right:5px"} ...
