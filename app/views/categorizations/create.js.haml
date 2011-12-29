@@ -1,21 +1,4 @@
 \//TODO: increment counter of the category tasks
 
-$('.#{dom_id(@task)}_categories').html(#{escape_javascript(render(:partial => 'tasks/task_categories_mini_bar', :locals => {:task => @task}))})
-
-
--#var @index = 0
--#@task.categories.each  |category|
--#@index = @index + 1
--#var @container_element = $(".#{dom_id(@task)}_category_container_#{@index}")
--#- if @container_element == nil
--#  continue;
--#-#- if container_element.available == "false"
--#-#  - continue;
--#@container_element.style.background = 'blue';
-
--#var @category = @task.categories[0]
--#var @container_element = $(".#{dom_id(@task)}_category_container_1")
--#@container_element.style.background = 'blue';
-
--#$(".task_1_category_container_1").style.background = 'blue';
+$('.#{dom_id(@task)}_categories').html("#{escape_javascript(render(:partial => 'tasks/task_categories_mini_bar', :locals => {:task => @task}))}")
 
