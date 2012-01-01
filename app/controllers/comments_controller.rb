@@ -13,9 +13,4 @@ class CommentsController < TaskSystemController
     create!
   end
 
-  #def update
-  #  #alert("updating")
-  #  update!
-  #end
-
 end

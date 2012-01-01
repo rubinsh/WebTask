@@ -22,7 +22,7 @@
     %hr{ :style => "width:610px;"}
     %h3 Comments
     %ul#comments.comment_list
-      = render :partial => "comments/comment", :collection => @task.comments, :as => :comment
+      = render :partial => "comments/comment", :collection => @task.comments(true), :as => :comment
 
   -#Add comment mini form
   %p
