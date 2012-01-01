@@ -3,7 +3,7 @@
     %tr
       %h3= @task.name
     %tr
-      - if not @task.description.empty?
+      - unless (@task.description == nil or  @task.description.empty?)
         %b Description:
         %textarea#task-show-description{:name => "description"}= @task.description
     %tr.span-10
@@ -32,3 +32,4 @@
       = hidden_field_tag 'task_id', @task.id
       = f.text_area :content, :id => "new_comment_textbox"
       = submit_tag :Add
+

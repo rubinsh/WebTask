@@ -1,10 +1,17 @@
-- _MAX_DISPLAYED_CAT = 3
-- cat_index = 0
-- task.categories.each do |category|
-  - if (cat_index == _MAX_DISPLAYED_CAT)
-    %td{:style => "padding-left:1px; padding-right:5px"} ...
-    - break
-  - cat_index += 1
-  %td{ :class => "task-category-color_#{dom_id(category)}",
-  :style => "width:60px; background:#{category.color}; border:solid 1pt lightblue; border-radius:3pt; text-align:center; "}
-    = truncate(category.name, :length => 10)
+- if ((task.categories == nil) or (task.categories.empty?))
+  - return
+
+%table{:style => "table-layout:fixed; width:60px; margin:0px"}
+  %tr
+    - _MAX_DISPLAYED_CAT = 3
+    - cat_index = 0
+    - task.categories.each do |category|
+      - if (cat_index == _MAX_DISPLAYED_CAT)
+        %td{:style => "padding-left:1px; padding-right:5px"} ...
+        - break
+      - cat_index += 1
+      %td{ :class => "task-category-color_#{dom_id(category)}",
+      :style => "width:60px; background:#{category.color}; border:solid 1pt lightblue; border-radius:3pt; text-align:center; "}
+        = truncate(category.name, :length => 10)
+
+

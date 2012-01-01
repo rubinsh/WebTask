@@ -1,4 +1,9 @@
--#$("#comments").append($("#{escape_javascript(render(@comment))}").fadeIn(500));
--#$(".comment_list").html(#{escape_javascript(render(:partial => 'comments/comment', :locals => {:comment => @comment}))})
+-# Generate a new comment element using the '_comment' partial and append it to the comment list
+-# Then change it to a ckeditor
+$(".comment_list").append($("#{escape_javascript(render(:partial => 'comments/comment', :locals => {:comment => @comment}))}").fadeIn("slow"))
+$( '.existing_comment' ).ckeditor({readOnly: true});
 
-$("#new_comment_textbox").val('');
+-# Empty the new_comment_textbox and update it so it would remain empty after page refresh.
+var editor = $('#new_comment_textbox').ckeditorGet();
+editor.setData('');
+editor.updateElement();

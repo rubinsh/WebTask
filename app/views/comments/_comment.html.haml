@@ -1,7 +1,6 @@
 %table{ :id => "#{dom_id(comment)}", :class => "comment"}
   %tr.span-10
     %th #{comment.user.email} wrote #{time_ago_in_words(comment.updated_at)} ago:
-    -#%th #{time_ago_in_words(comment.updated_at)} ago.
   %tr.comment-content-row
     %td{ :style => "high:600px; width:600px;"}
       %textarea{ :id => "#{dom_id(comment)}_content", :class => "existing_comment"}

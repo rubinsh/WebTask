@@ -1,7 +1,7 @@
 class CommentsController < TaskSystemController
   before_filter :authenticate_user!
 
-  actions :create, :update, :put, :destroy
+  actions :create, :update, :destroy
 
   respond_to :js, :json, :xml
 
@@ -12,5 +12,10 @@ class CommentsController < TaskSystemController
 
     create!
   end
+
+  #def update
+  #  #alert("updating")
+  #  update!
+  #end
 
 end
