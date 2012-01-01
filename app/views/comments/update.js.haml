@@ -1,1 +1,7 @@
--#$("#comment_#{@comment.to_param}").fadeOut('slow');
+//  Change the comment to readonly
+var comment_id = "comment_#{@comment.to_param}"
+var editor = $('#' + comment_id + "_content").ckeditorGet();
+editor.setReadOnly(true);
+$('#' + comment_id + "_update_action").hide();
+$('#' + comment_id + "_edit_delete_actions").show();
+

@@ -121,29 +121,25 @@ $(function () {
 
     CKEDITOR.on('instanceReady', function(e) {
         $('.cke_toolbox_collapser').hide();
+
+        // Toggle comment readonly on link click
+        //  Change the comment back to readonly only after it has been updated in the database, using ajax action - update.js
+        //  Doing it here would interfere with the submit process
+        $(".comment_update_action").hide();
+
+        $(".comment_edit_link").click(function(){
+          var comment_id = $(this).attr("comment_id")
+          var editor = $('#' + comment_id + "_content").ckeditorGet();
+          editor.setReadOnly(false);
+          editor.focus();
+          $('#' + comment_id + "_edit_delete_actions").hide();
+          $('#' + comment_id + "_update_action").show();
+        });
     });
 });
 
-// Toggle comment readonly on link click
 $(function () {
-    $(".comment_update_link").hide();
-
-    $(".comment_edit_link").click(function(){
-      var comment_id = $(this).attr("comment_id")
-      var editor = $('#' + comment_id + "_content").ckeditorGet();
-      editor.setReadOnly(false);
-      $('#' + comment_id + "_edit_link").hide();
-      $('#' + comment_id + "_update_link").show();
-    });
-
-    $(".comment_update_link").click(function(){
-      var comment_id = $(this).attr("comment_id")
-      var editor = $('#' + comment_id + "_content").ckeditorGet();
-      editor.setReadOnly(true);
-      $('#' + comment_id + "_update_link").hide();
-      $('#' + comment_id + "_edit_link").show();
-    });
-
+    $(".comment_update_action").hide();
 });
 
 // JSColor - Change the category color button to ColorSelectors and save the category color on jscolor.hidePicker
