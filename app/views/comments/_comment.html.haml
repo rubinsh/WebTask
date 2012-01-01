@@ -1,16 +1,15 @@
 %table{ :id => "#{dom_id(comment)}", :class => "comment"}
   %tr.span-10
-    %th #{comment.user.email} wrote #{time_ago_in_words(comment.updated_at)} ago:
+    %th #{comment.user.email} wrote #{time_ago_in_words(comment.created_at)} ago:
   %tr.comment-content-row
     %td{ :style => "high:600px; width:600px;"}
-      %textarea{ :id => "#{dom_id(comment)}_content", :class => "existing_comment"}
-        = comment.content
-
+      = form_for(comment, :remote => true)  do |f|
+        = f.text_area :content, :id => "#{dom_id(comment)}_content", :class => "existing_comment"
+        = submit_tag :Update, :id => "#{dom_id(comment)}_update_action", :class => "comment_update_action", :comment_id => "#{dom_id(comment)}"
   - if current_user == comment.user
-    %tr
+    %tr{ :id => "#{dom_id(comment)}_edit_delete_actions"}
       %td
-        %a{ :id => "#{dom_id(comment)}_edit_link", :class => "comment_edit_link", :href => "javascript:void(0);", :comment_id => "#{dom_id(comment)}"} Edit
-        = link_to "Update", comment, :method => :put, :remote => true,  :id => "#{dom_id(comment)}_update_link", :class => "comment_update_link", :comment_id => "#{dom_id(comment)}"
+        %a{ :class => "comment_edit_link", :href => "javascript:void(0);", :comment_id => "#{dom_id(comment)}"} Edit
         |
         = link_to "Delete", comment, :method => :delete, :confirm => "Please approve the comment deletion", :remote => true
 
