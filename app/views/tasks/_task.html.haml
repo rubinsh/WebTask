@@ -3,15 +3,15 @@
   %table
     %tbody
       %tr
-        %td#task_drag.task_drag{:style => "width:15px;"}
+        %td#task_drag.task_drag
           = image_tag "grab-icon.png"
-        %td#task-completed-checkbox{:style => "width:25px;"}
+        %td#task-completed-checkbox
           = check_box_tag "completed_checkbox_task_" + task.to_param, nil, task.completed? , :id => task.to_param
           = hidden_field_tag "toggle_complete_link_#{task.to_param}", toggle_complete_url(:id => task.to_param)
-        %td#task-content{ :style => "width:450px;"}
-          \#{link_to "", task_path(task), :id => "task_link", :style => "visibility: hidden; width: 0px;"}
+        %td#task-content
+          \#{link_to "", task_path(task), :id => "task_link"}
           \#{truncate task.name, :length => 60}
         %td#task-categories{ :class => "#{dom_id(task)}_categories"}
           = render 'task_categories_mini_bar', :task => task
-        %td{:style => "min-width:80px; text-align:right"}
+        %td.task_due_date
           = task.due_date

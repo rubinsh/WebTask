@@ -3,9 +3,8 @@
     %table
       %tbody.ui-state-default
         %tr
-          %td{ :style => "width:20px;"}
-            %input{ :id => "#{category.id}", :class => "CPicker", :readonly => "readonly",
-            :style => "background:#{category.color}; height:13px; width:13px; border:solid 1pt lightblue;  " }
+          %td.category_color_container
+            %input{ :id => "#{category.id}", :class => "CPicker", :readonly => "readonly", :style => "background:#{category.color}" }
             %input{ :id => "hiddenColorValue_#{dom_id(category)}", :type => "hidden"}
           -#TODO: remove the id attribute from the tds #category_name #category_menu
           %td

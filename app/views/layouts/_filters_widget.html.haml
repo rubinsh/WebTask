@@ -9,8 +9,8 @@
 
   %ul.button_list
     %li.ui-state-default.ui-corner-all
-      = link_to "Open Tasks", tasks_path(:completed => "false"), :style => "width: 97%;"
+      = link_to "Open Tasks", tasks_path(:completed => "false")
     %li.ui-state-default.ui-corner-all
-      = link_to "Completed Tasks", tasks_path(:completed => "true"), :style => "width: 97%;"
+      = link_to "Completed Tasks", tasks_path(:completed => "true")
     %li.ui-state-default.ui-corner-all
-      = link_to "All tasks", tasks_path, :style => "width: 97%;"
+      = link_to "All tasks", tasks_path

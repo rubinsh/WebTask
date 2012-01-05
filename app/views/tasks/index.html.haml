@@ -10,7 +10,7 @@
   if (($("#task-list-completed div").length <= 0)) $("#completed-task-container").hide();
   });
 
-.span-20.ui-widget-content.ui-corner-all{:style => "margin-left: 6px;"}
+.span-20.ui-widget-content.ui-corner-all.tasks-container
   = form_for(Task.new, :remote => true)  do |f|
     = f.text_field :name, :id => "create_new_task_textbox", :title => "Type here to create a new task..."
     = submit_tag :Add
@@ -18,14 +18,14 @@
   %ul.button_list
     #task-list.span-20
       #open-task-container
-        %table.ui-widget-header.ui-corner-all{:style => "margin-top: 10px; margin-bottom: 4px"}
+        %table.ui-widget-header.ui-corner-all.task-container-table
           %td
             %span.widget_header_text
               Open Tasks
         #task-list-open
           = render @open_tasks
       #completed-task-container
-        %table.ui-widget-header.ui-corner-all{:style => "margin-top: 10px; margin-bottom: 4px"}
+        %table.ui-widget-header.ui-corner-all.task-container-table
           %td
             %span.widget_header_text
               completed Tasks

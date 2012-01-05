@@ -2,7 +2,7 @@
   %tr.span-10
     %th #{comment.user.email} wrote #{time_ago_in_words(comment.created_at)} ago:
   %tr.comment-content-row
-    %td{ :style => "high:600px; width:600px;"}
+    %td
       = form_for(comment, :remote => true)  do |f|
         = f.text_area :content, :id => "#{dom_id(comment)}_content", :class => "existing_comment"
         = submit_tag :Update, :id => "#{dom_id(comment)}_update_action", :class => "comment_update_action", :comment_id => "#{dom_id(comment)}"

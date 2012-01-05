@@ -107,8 +107,27 @@
     background-image: url("http://www.google.com/s2/favicons?domain=google.com");
 }
 
+/*
+ category
+*/
+.category_color_container { width:20px }
+.CPicker {height:13px; width:13px; border:solid 1pt lightblue;}
+.category_name_container {width:600px}
+.task_category_table{table-layout:fixed; width:60px; margin:0px}
+.task_category_additional{padding-left:1px; padding-right:5px;}
+.specific_task_category_color {width:60px; border:solid 1pt lightblue; border-radius:3pt; text-align:center;}
+#new_category_name{margin-left:2px; width: 95%}
 
+/*
+ task
+*/
+#task_name {width: 600px}
+#task-content{width:450px}
+#task-completed-checkbox{width:25px}
+.task_drag{width:15px}
+.task_due_date{min-width:80px; text-align:right}
+.tasks-container{margin-left: 6px}
+.task-container-table{margin-top: 10px; margin-bottom: 4px}
 
-
-
+.section_separator{width:610px}
 
