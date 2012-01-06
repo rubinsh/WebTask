@@ -13,7 +13,7 @@ CKEDITOR.editorConfig = function( config )
     config.height = '100px';
     config.width = '600px';
     config.resize_enabled = false;
-    config.extraPlugins = 'autogrow';
+//    config.extraPlugins = 'autogrow';
     config.removePlugins = 'elementspath';
 
     config.toolbar = 'Minimal';

@@ -2,4 +2,24 @@
   .prepend-1.span-19
     %h1 Edit task details
     = render 'form'
+    = link_to 'Show', task_path(@task)
+    |
     = link_to 'Back', :back
+    %p
+
+  .prepend-1.span-19
+    %hr.section_separator
+    %h3 Comments
+    %ul#comments.comment_list
+      = render :partial => "comments/comment", :collection => @task.comments(true), :as => :comment
+
+  -#Add comment mini form
+  .prepend-1.span-19
+    %hr.section_separator
+    %h3 Add your comment
+    = form_for(Comment.new, :remote => true)  do |f|
+      = hidden_field_tag 'task_id', @task.id
+      = f.text_area :content, :id => "new_comment_textbox"
+      = submit_tag :Add
+    %p
+
