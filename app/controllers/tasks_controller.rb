@@ -19,7 +19,7 @@ class TasksController < TaskSystemController
   end
 
   def update
-    update! { task_path(@task) }
+    update! { tasks_path }
   end
 
   #TODO: this should move to update method with params
