@@ -1,0 +1,5 @@
+%script{:id => 'categoryNameEditTemplate', :type => 'text/x-jquery-tmpl'}
+  =form_tag('${url}', :method => 'put') do
+    =text_field(:category, :name, :value => '${category_name}')
+    =submit_tag('update')
+    %button.categoryNameEditCloseButton close

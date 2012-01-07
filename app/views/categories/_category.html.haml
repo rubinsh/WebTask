@@ -13,8 +13,7 @@
             %strong
               = truncate category.name, :length => 16
         %td
-          %span
-            Change name
+          = link_to 'Change name', category_path(category), :class => 'Category_change_name_button', :category_name => category.name
         %td
           = link_to 'Delete', category, :confirm => 'Are you sure?', :method => :delete
 

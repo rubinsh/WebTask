@@ -163,3 +163,40 @@ $(function() {
 });
 
 
+
+$(function() {
+    $("a.Category_change_name_button").live('click', function() {
+        // Get the category td name container
+        var category_name_container = $(this).parent().parent().children('td.category_name_container');
+
+        var category = {
+            url: $(this).attr('href'),
+            category_name: $(this).attr('category_name')
+        };
+
+        var editTemplate = $("#categoryNameEditTemplate").tmpl(category);
+
+        var close_button = editTemplate.children("button.categoryNameEditCloseButton").button({
+            text: false,
+            icons: {
+                primary: 'ui-icon-closethick'
+            }
+        });
+
+        close_button.click(function(){
+            var normalTemplate = $("#categoryNameNormalTemplate").tmpl(category);
+
+            category_name_container.html('');
+            category_name_container.append(normalTemplate);
+
+            return false;
+        });
+
+        category_name_container.html('');
+        category_name_container.append(editTemplate);
+
+        return false;
+    });
+});
+
+

@@ -113,6 +113,9 @@
 .category_color_container { width:20px }
 .CPicker {height:13px; width:13px; border:solid 1pt lightblue;}
 .category_name_container {width:600px}
+.category_name_container input[type="text"] { width: 80%; margin: 0px; }
+.category_name_container input[type="submit"] { width: 10%; margin: 0px; }
+.category_name_container button.categoryNameEditCloseButton { height: 18px; width: 16px; margin: 0px 0px 2px 4px; vertical-align: middle; }
 .task_category_table{table-layout:fixed; width:60px; margin:0px}
 .task_category_additional{padding-left:1px; padding-right:5px;}
 .specific_task_category_color {width:60px; border:solid 1pt lightblue; border-radius:3pt; text-align:center;}
